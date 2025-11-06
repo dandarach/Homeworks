@@ -6,7 +6,7 @@ namespace Homework15
 {
     public class Game : MonoBehaviour
     {
-        [SerializeField] private Hero _hero;
+        [SerializeField] private Character _hero;
         [SerializeField] private GameSettings _gameSettings;
         [SerializeField] private GameMessenger _gameMessenger;
 
@@ -22,7 +22,7 @@ namespace Homework15
             _gameMessenger.Initialize(_gameSettings.RestartKey);
             _gameMessenger.PrintWelcomeMessage();
 
-            _hero.Initialize();
+            _hero.Initialize(_gameSettings.CharacterSpeed, _gameSettings.CharacterRotationSpeed);
             _isRunning = true;
         }
 

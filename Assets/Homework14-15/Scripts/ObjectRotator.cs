@@ -9,9 +9,17 @@ namespace Homework15
 
         [SerializeField] private float _rotationSpeedMin;
         [SerializeField] private float _rotationSpeedMax;
+        [SerializeField] private Vector3 _rotationAngle;
+        
+        [Space]
+        [SerializeField] private float _verticalSpeed;
+        [SerializeField] private float _verticalAmplitude;
 
+        private float _time;
+        private float _phase;
         private float _rotationSpeed;
         private int _rotateDirection;
+        private Vector3 _defaultPosition;
 
         public bool IsRotating { get; private set; } = true;
 
@@ -19,10 +27,14 @@ namespace Homework15
 
         public void StopRotate() => IsRotating = false;
 
-        private void Awake()
+        public void InverseRotation() => _rotateDirection = -_rotateDirection;
+
+        public void Awake()
         {
+            _defaultPosition = transform.position;
             _rotationSpeed = GetRotationSpeed();
             _rotateDirection = GetRotateDirection();
+            _phase = GetRandomPhase();
         }
 
         private void Update()
@@ -30,7 +42,7 @@ namespace Homework15
             if (IsRotating == false)
                 return;
 
-            transform.Rotate(Vector3.up * _rotateDirection * _rotationSpeed * Time.deltaTime);
+            UpdatePositionAnsRotation(Time.deltaTime);
         }
 
         private int GetRotateDirection()
@@ -39,6 +51,17 @@ namespace Homework15
             return chance == 0 ? ClockwiseRotateDirection : CounterClockwiseRotateDirection;
         }
 
-        private float GetRotationSpeed() => Random.Range(_rotationSpeedMin, _rotationSpeedMax);
+        private float GetRotationSpeed() => Random.Range(_rotationSpeedMin, _rotationSpeedMax + 1);
+        
+        private float GetRandomPhase() => Random.Range(0, Mathf.PI * 2);
+
+        private void UpdatePositionAnsRotation(float deltaTime)
+        {
+            _time += deltaTime;
+
+            //transform.Rotate(Vector3.up, _rotateDirection * _rotationSpeed * deltaTime);
+            transform.Rotate(_rotationAngle, _rotateDirection * _rotationSpeed * deltaTime);
+            transform.position = _defaultPosition + Vector3.up * Mathf.Sin(_time * _verticalSpeed + _phase) * _verticalAmplitude;
+        }
     }
 }
