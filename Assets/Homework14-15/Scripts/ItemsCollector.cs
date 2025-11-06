@@ -10,7 +10,8 @@ namespace Homework15
 
             if (triggeredItem != null)
             {
-                Debug.Log($"+ Item collected");
+                Debug.Log($"Item Triggered");
+                triggeredItem.Collect();
             }
         }
     }

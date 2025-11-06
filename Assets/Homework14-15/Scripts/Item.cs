@@ -36,9 +36,10 @@ namespace Homework15
             if (_collectEffect == null)
                 return;
 
+            Debug.Log($"+ Item Collected");
             _collectEffect.transform.position = transform.position;
             _collectEffect.Play();
-            Disable();
+            //Destroy(gameObject);
         }
 
         public void StopEffect() => _collectEffect.Stop();

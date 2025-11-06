@@ -59,7 +59,6 @@ namespace Homework15
         {
             _time += deltaTime;
 
-            //transform.Rotate(Vector3.up, _rotateDirection * _rotationSpeed * deltaTime);
             transform.Rotate(_rotationAngle, _rotateDirection * _rotationSpeed * deltaTime);
             transform.position = _defaultPosition + Vector3.up * Mathf.Sin(_time * _verticalSpeed + _phase) * _verticalAmplitude;
         }
