@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 
 namespace Homework15
@@ -17,3 +18,4 @@ namespace Homework15
         }
     }
 }
+*/

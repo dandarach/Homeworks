@@ -20,6 +20,7 @@ namespace Homework15
         private void Initialize()
         {
             _gameMessenger.Initialize(_gameSettings.RestartKey);
+            _gameMessenger.PrintWelcomeMessage();
 
             _hero.Initialize();
             _isRunning = true;
@@ -58,7 +59,7 @@ namespace Homework15
 
         private void Restart()
         {
-            //_gameMessenger.PrintWelcomeMessage();
+            _gameMessenger.PrintWelcomeMessage();
 
             _hero.Reborn();
             _isRunning = true;
