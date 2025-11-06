@@ -4,8 +4,10 @@ using UnityEngine;
 
 namespace Homework15
 {
-    public class ItemSlot
+    public class ItemSlot : MonoBehaviour
     {
+        [SerializeField] private Transform _itemSlotLocation;
+
         private Item _item;
 
         public bool IsEmpty { get; private set; } = true;
@@ -13,6 +15,8 @@ namespace Homework15
         public void Add(Item item)
         {
             Debug.Log($"+ Item {item} added to Item Slot");
+            item.transform.SetParent(_itemSlotLocation, true);
+
             _item = item;
             IsEmpty = false;
         }
@@ -23,7 +27,9 @@ namespace Homework15
                 return;
 
             Debug.Log($"* Used Item {_item}");
-            //_item.Use();
+            
+            _item.Use();
+            _item.transform.parent = null;
             _item = null;
             IsEmpty = true;
         }

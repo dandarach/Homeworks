@@ -4,13 +4,11 @@ namespace Homework15
 {
     public class ItemsCollector : MonoBehaviour
     {
-        [SerializeField] private Transform _itemSlotLocation;
-        
-        private ItemSlot _itemSlot;
+        [SerializeField] private ItemSlot _itemSlot;
 
         public void Initialize()
         {
-            _itemSlot = new ItemSlot();
+            //
         }
 
         private void Update()
@@ -29,9 +27,7 @@ namespace Homework15
             if (triggeredItem != null && _itemSlot.IsEmpty)
             {
                 //Debug.Log($"Item Triggered");
-                triggeredItem.Collect();
                 _itemSlot.Add(triggeredItem);
-                triggeredItem.transform.SetParent(_itemSlotLocation, true);
             }
         }
     }

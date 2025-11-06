@@ -37,7 +37,6 @@ namespace Homework15
                 
                 Item newItem = Instantiate(itemPrefab, spawnPoint.Position, Quaternion.identity);
                 newItem.Initialize();
-                //Debug.Log($"Instantiate prefab {itemPrefab}");
 
                 spawnPoint.Occupy(newItem);
                 _time = 0;

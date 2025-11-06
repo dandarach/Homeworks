@@ -22,7 +22,7 @@ namespace Homework15
             //Destroy(gameObject, _destroyTime);
         }
 
-        public void Collect()
+        public void Use()
         {
             if (_collectEffect == null)
                 return;
@@ -30,6 +30,8 @@ namespace Homework15
             Debug.Log($"+ Item Collected");
             _collectEffect.transform.position = transform.position;
             _collectEffect.Play();
+
+            //Destroy( _collectEffect );
             //Destroy(gameObject);
         }
     }

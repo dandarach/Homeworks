@@ -7649,6 +7649,7 @@ GameObject:
   - component: {fileID: 1416778628}
   - component: {fileID: 1416778631}
   - component: {fileID: 1416778632}
+  - component: {fileID: 1416778633}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -7711,7 +7712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9213f6362d329d34b8c6e510e2022c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemSlotLocation: {fileID: 364796685}
+  _itemSlot: {fileID: 1416778633}
 --- !u!114 &1416778632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7726,6 +7727,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterAnimator: {fileID: 472883743}
   _itemsCollector: {fileID: 1416778631}
+--- !u!114 &1416778633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416778625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b88ff993975424f97a15ce9cae9c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemSlotLocation: {fileID: 364796685}
 --- !u!1001 &1427018989
 PrefabInstance:
   m_ObjectHideFlags: 0
