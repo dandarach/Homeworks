@@ -92,10 +92,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6211243354123351293}
-  - component: {fileID: 5569271675616334302}
   - component: {fileID: 3032116404561462445}
   - component: {fileID: 462342914526391324}
   - component: {fileID: 7760290980160570992}
+  - component: {fileID: 1760384133811708305}
   m_Layer: 0
   m_Name: coin
   m_TagString: Untagged
@@ -120,23 +120,6 @@ Transform:
   - {fileID: 1054765884460322905}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5569271675616334302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1484536769578148672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51f14f24210f3994c8c7f32dde985357, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rotationSpeedMin: 10
-  _rotationSpeedMax: 100
-  _rotationAngle: {x: 0, y: 0, z: 0}
-  _verticalSpeed: 3
-  _verticalAmplitude: 0.2
 --- !u!65 &3032116404561462445
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -170,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123d3413114a091408dc4601ebfe1c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroyTime: 4
   _collectEffect: {fileID: 6536654624028897855}
 --- !u!114 &7760290980160570992
 MonoBehaviour:
@@ -186,7 +170,19 @@ MonoBehaviour:
   _rotationSpeedMin: 10
   _rotationSpeedMax: 200
   _rotationAngle: {x: 0, y: 1, z: 0}
-  _verticalSpeed: 3
+--- !u!114 &1760384133811708305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484536769578148672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82aad0bc82e26064fa517aab6f415764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _verticalSpeed: 4
   _verticalAmplitude: 0.2
 --- !u!1001 &5162191711227124201
 PrefabInstance:

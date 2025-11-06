@@ -9,6 +9,7 @@ namespace Homework15
         private const string VerticalAxisName = "Vertical";
 
         [SerializeField] private CharacterAnimator _characterAnimator;
+        [SerializeField] private ItemsCollector _itemsCollector;
 
         private CharacterMover _characterMover;
 
@@ -17,6 +18,7 @@ namespace Homework15
         public void Initialize(float characterSpeed, float characterRotationSpeed)
         {
             _characterMover = new CharacterMover();
+            _itemsCollector.Initialize();
 
             CharacterController characterController = GetComponent<CharacterController>();
 

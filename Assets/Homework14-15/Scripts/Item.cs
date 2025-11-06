@@ -4,31 +4,22 @@ namespace Homework15
 {
     public class Item : MonoBehaviour
     {
+        [SerializeField] private float _destroyTime;
         [SerializeField] private ParticleSystem _collectEffect;
 
         private int _score;
-        private string _name;
 
-        public string Name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
-        
         public int Score
         {
             get { return _score; }
             set { _score = value; }
         }
 
-        public void Enable()
+        public void Initialize(int score = 0)
         {
-            gameObject.SetActive(true);
-        }
+            _score = score;
 
-        public void Disable()
-        {
-            gameObject.SetActive(false);
+            //Destroy(gameObject, _destroyTime);
         }
 
         public void Collect()
@@ -41,7 +32,5 @@ namespace Homework15
             _collectEffect.Play();
             //Destroy(gameObject);
         }
-
-        public void StopEffect() => _collectEffect.Stop();
     }
 }

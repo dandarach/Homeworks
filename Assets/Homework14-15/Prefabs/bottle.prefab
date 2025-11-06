@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123d3413114a091408dc4601ebfe1c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroyTime: 3
   _collectEffect: {fileID: 4518237981717694478}
 --- !u!114 &8437024739994092845
 MonoBehaviour:
@@ -136,8 +137,6 @@ MonoBehaviour:
   _rotationSpeedMin: 80
   _rotationSpeedMax: 80
   _rotationAngle: {x: 0.25, y: 1, z: 0}
-  _verticalSpeed: 3
-  _verticalAmplitude: 0.2
 --- !u!1001 &5043927238674498607
 PrefabInstance:
   m_ObjectHideFlags: 0

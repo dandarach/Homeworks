@@ -9,6 +9,7 @@ namespace Homework15
         [SerializeField] private Character _hero;
         [SerializeField] private GameSettings _gameSettings;
         [SerializeField] private GameMessenger _gameMessenger;
+        [SerializeField] private ItemSpawner _itemSpawner;
 
         private bool _isRunning;
 
@@ -20,9 +21,10 @@ namespace Homework15
         private void Initialize()
         {
             _gameMessenger.Initialize(_gameSettings.RestartKey);
-            _gameMessenger.PrintWelcomeMessage();
-
+            _itemSpawner.Initialize(_gameSettings.ItemSpawnCooldown);
             _hero.Initialize(_gameSettings.CharacterSpeed, _gameSettings.CharacterRotationSpeed);
+
+            _gameMessenger.PrintWelcomeMessage();
             _isRunning = true;
         }
 

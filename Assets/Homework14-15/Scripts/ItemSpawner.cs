@@ -7,14 +7,15 @@ namespace Homework15
     public class ItemSpawner : MonoBehaviour
     {
         [SerializeField] private List<Item> _itemPrefabVariants;
-        [SerializeField] private List<Transform> _spawnPoints;
-        [SerializeField] float _cooldown;
-
+        [SerializeField] private List<SpawnPoint> _spawnPoints;
+        
+        float _cooldown;
         private float _time;
 
-        public void Initialize()
+        public void Initialize(float cooldown)
         {
-            //
+            _time = 0;
+            _cooldown = cooldown;
         }
 
         private void Update()
@@ -23,19 +24,41 @@ namespace Homework15
             
             if (_time >= _cooldown)
             {
-                Item itemPrefab = GetRandomItemPrefab();
-                Transform spawnPoint = GetRandomSpawnPoint();
-                Instantiate(itemPrefab, spawnPoint.position, Quaternion.identity);
-                Debug.Log($"Instantiate prefab {itemPrefab}");
+                List<SpawnPoint> emptyPoints = GetEmptyPoints();
 
+                if (emptyPoints.Count == 0 )
+                {
+                    _time = 0;
+                    return;
+                }
+
+                Item itemPrefab = GetRandomPrefab();
+                SpawnPoint spawnPoint = GetRandomPoint(emptyPoints);
+                
+                Item newItem = Instantiate(itemPrefab, spawnPoint.Position, Quaternion.identity);
+                newItem.Initialize();
+                //Debug.Log($"Instantiate prefab {itemPrefab}");
+
+                spawnPoint.Occupy(newItem);
                 _time = 0;
             }
         }
 
-        private Item GetRandomItemPrefab()
+        private Item GetRandomPrefab()
             => _itemPrefabVariants[Random.Range(0, _itemPrefabVariants.Count)];
 
-        private Transform GetRandomSpawnPoint()
-            => _spawnPoints[Random.Range(0, _spawnPoints.Count)];
+        private SpawnPoint GetRandomPoint(List<SpawnPoint> emptyPoints)
+            => emptyPoints[Random.Range(0, emptyPoints.Count)];
+
+        private List<SpawnPoint> GetEmptyPoints()
+        {
+            List<SpawnPoint> emptyPoints = new List<SpawnPoint>();
+
+            foreach (SpawnPoint point in _spawnPoints)
+                if (point.IsEmpty)
+                    emptyPoints.Add(point);
+
+            return emptyPoints;
+        }
     }
 }
