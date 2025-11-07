@@ -12,6 +12,8 @@ namespace Homework15
         [SerializeField] private ItemsCollector _itemsCollector;
 
         private CharacterMover _characterMover;
+        
+        public int Health { get; private set; }
 
         public bool IsAlive { get; private set; }
 
@@ -44,6 +46,23 @@ namespace Homework15
                 return;
 
             _characterMover.RotateAndMoveTo(input);
+        }
+
+        public void AddHealth(int additionalHealth) => Health += additionalHealth;
+
+        public void TakeDamage(int damage)
+        {
+            Health -= damage;
+            CheckHealth();
+        }
+
+        private void CheckHealth()
+        {
+            if (Health <= 0)
+            {
+                Health = 0;
+                Die();
+            }
         }
 
         public void Disable() => IsAlive = false;

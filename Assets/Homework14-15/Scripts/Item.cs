@@ -26,37 +26,30 @@ namespace Homework15
 
             _time -= Time.deltaTime;
 
-            if (_time <= 0)
-                Kill();
+            //if (_time <= 0)
+                //Kill();
         }
 
         public void Collect()
         {
             Debug.Log($"+ Item collected");
-
             _itemEffects.FreezeEffects();
             IsCollected = true;
         }
 
         public virtual void Use()
         {
-            if (IsUsed == true)
-            {
-                Debug.LogWarning("! Item already used");
-                return;
-            }
-
             Debug.Log("* Item used");
             _itemEffects.FreezeEffects();
             _itemEffects.PlayParticleEffect(transform);
-
             IsUsed = true;
+            Kill();
         }
 
         private void Kill()
         {
-            //IsUsed = true;
-            //Destroy(gameObject);
+            IsUsed = true;
+            Destroy(gameObject);
         }
     }
 }

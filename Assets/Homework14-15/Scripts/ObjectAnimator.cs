@@ -8,7 +8,12 @@ namespace Homework15
 
         public bool IsAnimating { get; private set; } = true;
 
-        public abstract void Initialize();
+        private Transform _initialTransform;
+
+        public virtual void Initialize()
+        {
+            _initialTransform = gameObject.transform;
+        }
 
         protected virtual void Update()
         {
@@ -19,7 +24,12 @@ namespace Homework15
             UpdateState();
         }
 
-        public virtual void Freeze() => IsAnimating = false;
+        public virtual void Freeze()
+        {
+            IsAnimating = false;
+            gameObject.transform.localPosition = _initialTransform.localPosition;
+            gameObject.transform.rotation = Quaternion.identity;
+        }
         
         public virtual void UnFreeze() => IsAnimating = true;
 

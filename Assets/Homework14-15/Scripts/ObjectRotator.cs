@@ -18,6 +18,7 @@ namespace Homework15
 
         public override void Initialize()
         {
+            base.Initialize();
             _rotationSpeed = GetRotationSpeed();
             _rotateDirection = GetRotateDirection();
         }

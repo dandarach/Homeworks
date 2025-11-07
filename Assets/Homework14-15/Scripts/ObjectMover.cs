@@ -13,6 +13,7 @@ namespace Homework15
 
         public override void Initialize()
         {
+            base.Initialize();
             _defaultPosition = transform.position;
             _phase = GetRandomPhase();
         }

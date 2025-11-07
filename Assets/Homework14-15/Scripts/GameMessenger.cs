@@ -38,9 +38,6 @@ namespace Homework15
             => _messengerUI.PrintText(_dieGameMessage, _dieGameMessageColor);
 
         public void PrintEmptySlotMessage()
-        {
-            Debug.LogWarning("ffff");
-            _messengerUI.PrintText(_emptySlotMessage, _emptySlotMessageColor, _timeToHideText);
-        }
+            => _messengerUI.PrintText(_emptySlotMessage, _emptySlotMessageColor, _timeToHideText);
     }
 }

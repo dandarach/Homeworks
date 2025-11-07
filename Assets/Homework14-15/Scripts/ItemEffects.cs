@@ -38,6 +38,7 @@ namespace Homework15
                 return;
 
             ParticleSystem itemParticleEffect = Instantiate(_itemParticleEffectPrefab, transform);
+            itemParticleEffect.transform.parent = null;
             itemParticleEffect.Play();
         }
     }

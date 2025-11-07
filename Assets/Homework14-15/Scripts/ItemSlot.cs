@@ -6,39 +6,46 @@ namespace Homework15
 {
     public class ItemSlot : MonoBehaviour
     {
-        [SerializeField] private Transform _itemSlotLocation;
+        [SerializeField] private Transform _slotLocation;
+        [SerializeField] private Vector3 _slotLocationCorrection;
         [SerializeField] private GameMessenger _gameMessenger;
 
         private Item _item;
 
         public bool IsEmpty { get; private set; } = true;
 
-        public void Add(Item item)
+        public void Push(Item item)
         {
+            if (IsEmpty == false)
+            {
+                Debug.LogWarning("Sorry. You can collect only one item!");
+                return;
+            }
+
             Debug.Log($"+ Item {item} added to Item Slot");
-            item.transform.SetParent(_itemSlotLocation, true);
-            item.Collect();
+
+            item.transform.SetParent(_slotLocation, true);
+            item.transform.localPosition = Vector3.zero + _slotLocationCorrection;
 
             _item = item;
             IsEmpty = false;
         }
 
-        public void UseItem()
+        public Item Pop()
         {
             if (IsEmpty)
             {
+                Debug.LogWarning("You have no items!");
                 _gameMessenger.PrintEmptySlotMessage();
-                return;
+                
+                return null;
             }
 
-            Debug.Log($"* Used Item {_item}");
-            
-            _item.Use();
             _item.transform.parent = null;
             _item = null;
             IsEmpty = true;
+            
+            return _item;
         }
-
-        public Item GetItem() => _item;
     }
 }
