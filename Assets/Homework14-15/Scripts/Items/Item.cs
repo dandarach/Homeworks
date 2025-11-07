@@ -13,8 +13,6 @@ namespace Homework15.Items
 
         public bool IsCollected { get; private set; } = false;
 
-        public bool IsUsed { get; private set; } = false;
-
         public void Initialize()
         {
             _itemEffects.Initialize();
@@ -23,18 +21,18 @@ namespace Homework15.Items
 
         private void Update()
         {
-            if (IsCollected || IsUsed)
+            if (IsCollected)
                 return;
 
             _time -= Time.deltaTime;
 
-            //if (_time <= 0)
-                //Kill();
+            if (_time <= 0 && IsCollected == false)
+                Kill();
         }
 
         public void Collect()
         {
-            Debug.Log($"+ Item collected");
+            //Debug.Log($"+ Item collected");
             _itemEffects.FreezeEffects();
             _collectEffect.Play();
             IsCollected = true;
@@ -42,9 +40,8 @@ namespace Homework15.Items
 
         public virtual void Use()
         {
-            Debug.Log("* Item used");
+            //Debug.Log("* Item used");
             _itemEffects.FreezeEffects();
-            IsUsed = true;
             Kill();
         }
 
@@ -52,7 +49,6 @@ namespace Homework15.Items
 
         private void Kill()
         {
-            IsUsed = true;
             Destroy(gameObject);
         }
     }

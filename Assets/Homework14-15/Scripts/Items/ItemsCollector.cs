@@ -1,17 +1,18 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using Homework15.Characters;
 
 namespace Homework15.Items
 {
     public class ItemsCollector : MonoBehaviour
     {
-        [SerializeField] private ItemSlot _itemSlot;
-
+        [SerializeField] private Character _character;
+        
+        private ItemSlot _itemSlot;
         private KeyCode _useItemKey;
 
         public void Initialize(KeyCode useItemKey)
         {
+            _itemSlot = _character.GetComponent<ItemSlot>();
             _useItemKey = useItemKey;
         }
 
@@ -31,8 +32,6 @@ namespace Homework15.Items
 
         private void CollectItem(Item item)
         {
-            Debug.Log("CollectItem()");
-
             if (_itemSlot.IsEmpty == false)
                 return;
                 
@@ -60,12 +59,8 @@ namespace Homework15.Items
             if (itemParticleEffectPrefab == null)
                 return;
 
-            Debug.LogWarning("Play particle effect");
-
             ParticleSystem itemParticleEffect = Instantiate(itemParticleEffectPrefab, item.transform, false);
             itemParticleEffect.transform.parent = null;
-            //itemParticleEffect.transform.position = Vector3.zero + new Vector3(0, 2, 0);
-            Debug.Log(item.transform.position);
             itemParticleEffect.Play();
         }
     }

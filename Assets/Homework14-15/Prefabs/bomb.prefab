@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2309506473559663753}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0680008, y: 0.8, z: -2.0525022}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -140,6 +140,10 @@ MonoBehaviour:
   _collectEffect: {fileID: 5643036570762516989}
   _useEffectPrefab: {fileID: 1301697207402410478, guid: 1b0bd5f4497bf014abfaa977b50fb6b3,
     type: 3}
+  _bulletPrefab: {fileID: 8529426339646290933, guid: 1d22eb6a7949f844bafdbddf6189163d,
+    type: 3}
+  _bulletSpeed: 20
+  _bulletLifeTime: 5
 --- !u!114 &8635839723490509487
 MonoBehaviour:
   m_ObjectHideFlags: 0
