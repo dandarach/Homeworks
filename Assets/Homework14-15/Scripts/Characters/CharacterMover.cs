@@ -5,6 +5,7 @@ namespace Homework15.Characters
     public class CharacterMover
     {
         private float _speed;
+        private float _maximumSpeed;
         private float _rotationSpeed;
 
         private CharacterController _characterController;
@@ -12,9 +13,12 @@ namespace Homework15.Characters
         private Quaternion _initialTransformRotation;
         private Vector3 _initialTransformScale;
 
-        public void Initialize(CharacterController characterController, float speed, float rotationSpeed)
+        public float Speed { get { return _speed; } }
+
+        public void Initialize(CharacterController characterController, float speed, float maximumSpeed, float rotationSpeed)
         {
             _speed = speed;
+            _maximumSpeed = maximumSpeed;
             _rotationSpeed = rotationSpeed;
             _characterController = characterController;
 
@@ -52,6 +56,14 @@ namespace Homework15.Characters
             _characterController.transform.localScale = _initialTransformScale;
 
             _characterController.enabled = true;
+        }
+
+        public void Accelerate (float additionalSpeed)
+        {
+            _speed += additionalSpeed;
+
+            if (_speed > _maximumSpeed)
+                _speed = _maximumSpeed;
         }
     }
 }

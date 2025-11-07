@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Homework15.Items;
+using Homework15.UI;
 
 namespace Homework15.Characters
 {
@@ -11,29 +12,38 @@ namespace Homework15.Characters
 
         [SerializeField] private CharacterAnimator _characterAnimator;
         [SerializeField] private ItemsCollector _itemsCollector;
+        [SerializeField] private HealthIndicator _healthIndicator;
 
         private CharacterMover _characterMover;
         
         public int Health { get; private set; }
-
+        
         public bool IsAlive { get; private set; }
 
-        public void Initialize(float characterSpeed, float characterRotationSpeed, KeyCode useItemKey)
+        public void Initialize(
+            float characterInitialSpeed,
+            float characterRotationSpeed,
+            float characterMaximumSpeed,
+            int initialHealth,
+            KeyCode useItemKey)
         {
             _characterMover = new CharacterMover();
             _itemsCollector.Initialize(useItemKey);
+            Health = initialHealth;
 
             CharacterController characterController = GetComponent<CharacterController>();
 
             if (characterController != null)
             {
-                _characterMover.Initialize(characterController, characterSpeed, characterRotationSpeed);
+                _characterMover.Initialize(characterController, characterInitialSpeed, characterMaximumSpeed, characterRotationSpeed);
                 IsAlive = true;
             }
             else
             {
                 Debug.LogError("Character. Unable to get CharacterController");
             }
+
+            _healthIndicator.UpdateUI(Health);
         }
 
         private void Update()
@@ -49,12 +59,19 @@ namespace Homework15.Characters
             _characterMover.RotateAndMoveTo(input);
         }
 
-        public void AddHealth(int additionalHealth) => Health += additionalHealth;
+        public void Heal(int additionalHealth)
+        {
+            Health += additionalHealth;
+            _healthIndicator.UpdateUI(Health);
+            Debug.Log($"Heal: {additionalHealth}. Total Health: {Health}");
+        }
 
         public void TakeDamage(int damage)
         {
             Health -= damage;
             CheckHealth();
+            _healthIndicator.UpdateUI(Health);
+            Debug.Log($"Damage: {damage}. Total Health: {Health}");
         }
 
         private void CheckHealth()
@@ -64,6 +81,12 @@ namespace Homework15.Characters
                 Health = 0;
                 Die();
             }
+        }
+
+        public void SpeedUp(float additionalSpeed)
+        {
+            _characterMover.Accelerate(additionalSpeed);
+            Debug.Log($"SpeedUp: {additionalSpeed}. Total Speed: {_characterMover.Speed}");
         }
 
         public void Disable() => IsAlive = false;

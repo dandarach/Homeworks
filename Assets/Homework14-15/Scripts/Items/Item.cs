@@ -33,7 +33,6 @@ namespace Homework15.Items
 
         public void Collect()
         {
-            //Debug.Log($"+ Item collected");
             _itemEffects.FreezeEffects();
             _collectEffect.Play();
             IsCollected = true;
@@ -41,7 +40,6 @@ namespace Homework15.Items
 
         public virtual void Use(Character character)
         {
-            //Debug.Log("* Item used");
             _itemEffects.FreezeEffects();
             Kill();
         }

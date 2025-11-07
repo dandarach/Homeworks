@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Homework15.Game;
+using Homework15.UI;
 
 namespace Homework15.Items
 {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Homework15.Characters;
 using Homework15.Spawners;
+using Homework15.UI;
 
 namespace Homework15.Game
 {
@@ -24,7 +25,12 @@ namespace Homework15.Game
         {
             _gameMessenger.Initialize(_gameSettings.RestartKey);
             _itemSpawner.Initialize(_gameSettings.ItemSpawnCooldown);
-            _hero.Initialize(_gameSettings.CharacterSpeed, _gameSettings.CharacterRotationSpeed, _gameSettings.UseItemKey);
+            _hero.Initialize(
+                _gameSettings.CharacterInitialSpeed,
+                _gameSettings.CharacterRotationSpeed,
+                _gameSettings.CharacterMaximumSpeed,
+                _gameSettings.InitialHealth,
+                _gameSettings.UseItemKey);
 
             _gameMessenger.PrintWelcomeMessage();
             _isRunning = true;

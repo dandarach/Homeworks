@@ -188,6 +188,7 @@ MonoBehaviour:
   _collectEffect: {fileID: 7030392820582690322}
   _useEffectPrefab: {fileID: 2095606205811567574, guid: 2e868867b013c234fa8c850024e62211,
     type: 3}
+  _additionalHtalth: 5
 --- !u!114 &6030232245392231427
 MonoBehaviour:
   m_ObjectHideFlags: 0
