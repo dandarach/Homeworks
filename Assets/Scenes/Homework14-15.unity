@@ -2397,7 +2397,7 @@ GameObject:
   m_Layer: 0
   m_Name: SlotPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2410,7 +2410,7 @@ Transform:
   m_GameObject: {fileID: 364796684}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.124999985, y: 0, z: 0.25000006}
+  m_LocalPosition: {x: -0.007, y: 0.961, z: -0.007}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10314,7 +10314,7 @@ Transform:
   - {fileID: 764962260}
   - {fileID: 2114005151}
   - {fileID: 289273523}
-  m_Father: {fileID: 1938670811}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1898214028
 MonoBehaviour:
@@ -10329,9 +10329,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemPrefabVariants:
-  - {fileID: 5387277723941999923, guid: 3267fc756f8c36f44960c70d63cebac0, type: 3}
-  - {fileID: 7316596686460239257, guid: 6acc33ef4c7669947afd6fd420a44398, type: 3}
-  - {fileID: 462342914526391324, guid: 76840766077cf0542b635e1a0477a640, type: 3}
+  - {fileID: 7428613887271267444, guid: 3267fc756f8c36f44960c70d63cebac0, type: 3}
+  - {fileID: 7362936691292606715, guid: 6acc33ef4c7669947afd6fd420a44398, type: 3}
+  - {fileID: 8022256225092719584, guid: 76840766077cf0542b635e1a0477a640, type: 3}
   _spawnPoints:
   - {fileID: 9197014}
   - {fileID: 1267932099}
@@ -10467,7 +10467,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 229693031}
-  - {fileID: 1898214027}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1938670812
@@ -12029,3 +12028,4 @@ SceneRoots:
   - {fileID: 1938670811}
   - {fileID: 1416778626}
   - {fileID: 1572247226}
+  - {fileID: 1898214027}

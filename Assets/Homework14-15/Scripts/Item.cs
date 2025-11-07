@@ -2,36 +2,60 @@ using UnityEngine;
 
 namespace Homework15
 {
-    public class Item : MonoBehaviour
+    public abstract class Item : MonoBehaviour
     {
         [SerializeField] private float _destroyTime;
-        [SerializeField] private ParticleSystem _collectEffect;
+        [SerializeField] private ItemEffects _itemEffects;
 
-        private int _score;
+        private float _time;
 
-        public int Score
+        public bool IsCollected { get; private set; } = false;
+
+        public bool IsUsed { get; private set; } = false;
+
+        public void Initialize()
         {
-            get { return _score; }
-            set { _score = value; }
+            _itemEffects.Initialize();
+            _time = _destroyTime;
         }
 
-        public void Initialize(int score = 0)
+        private void Update()
         {
-            _score = score;
-
-            //Destroy(gameObject, _destroyTime);
-        }
-
-        public void Use()
-        {
-            if (_collectEffect == null)
+            if (IsCollected || IsUsed)
                 return;
 
-            Debug.Log($"+ Item Collected");
-            _collectEffect.transform.position = transform.position;
-            _collectEffect.Play();
+            _time -= Time.deltaTime;
 
-            //Destroy( _collectEffect );
+            if (_time <= 0)
+                Kill();
+        }
+
+        public void Collect()
+        {
+            Debug.Log($"+ Item collected");
+
+            _itemEffects.FreezeEffects();
+            IsCollected = true;
+        }
+
+        public virtual void Use()
+        {
+            if (IsUsed == true)
+            {
+                Debug.LogWarning("* Item already used!");
+                return;
+            }
+
+            Debug.Log("* Item used");
+            _itemEffects.FreezeEffects();
+            _itemEffects.PlayParticleEffect(transform);
+
+            IsUsed = true;
+        }
+
+        private void Kill()
+        {
+            //IsUsed = true;
             //Destroy(gameObject);
         }
     }

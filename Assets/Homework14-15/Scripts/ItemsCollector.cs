@@ -14,10 +14,7 @@ namespace Homework15
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.F))
-            {
-                Debug.Log("Use key pressed");
                 _itemSlot.UseItem();
-            }
         }
 
         private void OnTriggerEnter(Collider other)

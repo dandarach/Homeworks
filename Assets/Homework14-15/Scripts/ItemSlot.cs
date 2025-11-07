@@ -16,6 +16,7 @@ namespace Homework15
         {
             Debug.Log($"+ Item {item} added to Item Slot");
             item.transform.SetParent(_itemSlotLocation, true);
+            item.Collect();
 
             _item = item;
             IsEmpty = false;
