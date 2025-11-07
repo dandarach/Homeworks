@@ -41,9 +41,13 @@ namespace Homework15.Items
         {
             Debug.Log("* Item used");
             _itemEffects.FreezeEffects();
-            _itemEffects.PlayParticleEffect(transform);
             IsUsed = true;
             Kill();
+        }
+
+        public ParticleSystem GetItemEffectPrefab()
+        {
+            return _itemEffects.GetParticleEffectPrefab();
         }
 
         private void Kill()

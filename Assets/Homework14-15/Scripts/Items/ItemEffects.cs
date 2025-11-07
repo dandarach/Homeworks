@@ -32,14 +32,6 @@ namespace Homework15.Items
                 animator.UnFreeze();
         }
 
-        public void PlayParticleEffect(Transform transform)
-        {
-            if (_itemParticleEffectPrefab == null)
-                return;
-
-            ParticleSystem itemParticleEffect = Instantiate(_itemParticleEffectPrefab, transform);
-            itemParticleEffect.transform.parent = null;
-            itemParticleEffect.Play();
-        }
+        public ParticleSystem GetParticleEffectPrefab() => _itemParticleEffectPrefab;
     }
 }

@@ -43,10 +43,14 @@ namespace Homework15.Items
             }
 
             _item.transform.parent = null;
-            _item = null;
-            IsEmpty = true;
             
             return _item;
+        }
+
+        public void Clear()
+        {
+            _item = null;
+            IsEmpty = true;
         }
     }
 }

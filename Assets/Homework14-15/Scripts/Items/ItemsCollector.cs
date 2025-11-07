@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Homework15.Items
 {
@@ -7,7 +8,7 @@ namespace Homework15.Items
     {
         [SerializeField] private ItemSlot _itemSlot;
 
-        private KeyCode _useItemKey = KeyCode.F;
+        private KeyCode _useItemKey;
 
         public void Initialize(KeyCode useItemKey)
         {
@@ -42,15 +43,30 @@ namespace Homework15.Items
 
         private void UseItem()
         {
-            Debug.Log("UseItem()");
-
             Item item = _itemSlot.Pop();
+            _itemSlot.Clear();
 
             if (item == null)
                 return;
 
-            Debug.Log($"* Used Item {item}");
+            PlayParticleEffect(item);
             item.Use();
+        }
+
+        public void PlayParticleEffect(Item item)
+        {
+            ParticleSystem itemParticleEffectPrefab = item.GetItemEffectPrefab();
+
+            if (itemParticleEffectPrefab == null)
+                return;
+
+            Debug.LogWarning("Play particle effect");
+
+            ParticleSystem itemParticleEffect = Instantiate(itemParticleEffectPrefab, item.transform, false);
+            itemParticleEffect.transform.parent = null;
+            //itemParticleEffect.transform.position = Vector3.zero + new Vector3(0, 2, 0);
+            Debug.Log(item.transform.position);
+            itemParticleEffect.Play();
         }
     }
 }
