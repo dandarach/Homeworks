@@ -6,6 +6,8 @@ namespace Homework15.Items
     {
         [SerializeField] private float _destroyTime;
         [SerializeField] private ItemEffects _itemEffects;
+        [SerializeField] private ParticleSystem _collectEffect;
+        [SerializeField] private ParticleSystem _useEffectPrefab;
 
         private float _time;
 
@@ -34,6 +36,7 @@ namespace Homework15.Items
         {
             Debug.Log($"+ Item collected");
             _itemEffects.FreezeEffects();
+            _collectEffect.Play();
             IsCollected = true;
         }
 
@@ -45,10 +48,7 @@ namespace Homework15.Items
             Kill();
         }
 
-        public ParticleSystem GetItemEffectPrefab()
-        {
-            return _itemEffects.GetParticleEffectPrefab();
-        }
+        public ParticleSystem GetItemEffectPrefab() => _useEffectPrefab;
 
         private void Kill()
         {

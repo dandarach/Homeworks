@@ -8,7 +8,6 @@ namespace Homework15.Items
     public class ItemEffects : MonoBehaviour
     {
         [SerializeField] private List<ObjectAnimator> _objectAnimators;
-        [SerializeField] private ParticleSystem _itemParticleEffectPrefab;
 
         public void Initialize()
         {
@@ -31,7 +30,5 @@ namespace Homework15.Items
             foreach (ObjectAnimator animator in _objectAnimators)
                 animator.UnFreeze();
         }
-
-        public ParticleSystem GetParticleEffectPrefab() => _itemParticleEffectPrefab;
     }
 }
