@@ -42,7 +42,7 @@ namespace Homework15
         {
             if (IsUsed == true)
             {
-                Debug.LogWarning("* Item already used!");
+                Debug.LogWarning("! Item already used");
                 return;
             }
 

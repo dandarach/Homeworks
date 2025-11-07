@@ -22,7 +22,7 @@ namespace Homework15
         {
             _gameMessenger.Initialize(_gameSettings.RestartKey);
             _itemSpawner.Initialize(_gameSettings.ItemSpawnCooldown);
-            _hero.Initialize(_gameSettings.CharacterSpeed, _gameSettings.CharacterRotationSpeed);
+            _hero.Initialize(_gameSettings.CharacterSpeed, _gameSettings.CharacterRotationSpeed, _gameSettings.UseItemKey);
 
             _gameMessenger.PrintWelcomeMessage();
             _isRunning = true;

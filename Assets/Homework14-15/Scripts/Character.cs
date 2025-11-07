@@ -15,10 +15,10 @@ namespace Homework15
 
         public bool IsAlive { get; private set; }
 
-        public void Initialize(float characterSpeed, float characterRotationSpeed)
+        public void Initialize(float characterSpeed, float characterRotationSpeed, KeyCode useItemKey)
         {
             _characterMover = new CharacterMover();
-            _itemsCollector.Initialize();
+            _itemsCollector.Initialize(useItemKey);
 
             CharacterController characterController = GetComponent<CharacterController>();
 

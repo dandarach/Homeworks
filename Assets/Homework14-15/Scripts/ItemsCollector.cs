@@ -6,14 +6,16 @@ namespace Homework15
     {
         [SerializeField] private ItemSlot _itemSlot;
 
-        public void Initialize()
+        private KeyCode _useItemKey = KeyCode.F;
+
+        public void Initialize(KeyCode useItemKey)
         {
-            //
+            _useItemKey = useItemKey;
         }
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(_useItemKey))
                 _itemSlot.UseItem();
         }
 

@@ -7,6 +7,7 @@ namespace Homework15
     public class ItemSlot : MonoBehaviour
     {
         [SerializeField] private Transform _itemSlotLocation;
+        [SerializeField] private GameMessenger _gameMessenger;
 
         private Item _item;
 
@@ -25,7 +26,10 @@ namespace Homework15
         public void UseItem()
         {
             if (IsEmpty)
+            {
+                _gameMessenger.PrintEmptySlotMessage();
                 return;
+            }
 
             Debug.Log($"* Used Item {_item}");
             

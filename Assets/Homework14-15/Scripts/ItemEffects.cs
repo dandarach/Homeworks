@@ -34,8 +34,6 @@ namespace Homework15
 
         public void PlayParticleEffect(Transform transform)
         {
-            Debug.LogWarning("PlayParticleEffect");
-
             if (_itemParticleEffectPrefab == null)
                 return;
 

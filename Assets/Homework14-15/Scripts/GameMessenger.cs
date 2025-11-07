@@ -16,6 +16,9 @@ namespace Homework15
         [SerializeField] private string _winGameMessage;
         [SerializeField] private Color _winGameMessageColor;
         
+        [SerializeField] private string _emptySlotMessage;
+        [SerializeField] private Color _emptySlotMessageColor;
+        
         [SerializeField] private string _restartGameMessage;
 
         private KeyCode _restartKey;
@@ -34,5 +37,10 @@ namespace Homework15
         public void PrintDieGameMessage()
             => _messengerUI.PrintText(_dieGameMessage, _dieGameMessageColor);
 
+        public void PrintEmptySlotMessage()
+        {
+            Debug.LogWarning("ffff");
+            _messengerUI.PrintText(_emptySlotMessage, _emptySlotMessageColor, _timeToHideText);
+        }
     }
 }
