@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Homework15.Items
@@ -9,12 +7,14 @@ namespace Homework15.Items
         private float _speed;
         private float _lifeTime;
         private float _time;
+        private Vector3 _characterDirection;
         private bool _isRunning;
 
-        public void Initialize(float speed, float lifeTime)
+        public void Initialize(float speed, float lifeTime, Vector3 characterDirection)
         {
             _speed = speed;
             _lifeTime = lifeTime;
+            _characterDirection = characterDirection;
             _isRunning = false;
         }
 
@@ -31,7 +31,7 @@ namespace Homework15.Items
 
             _time += Time.deltaTime;
 
-            transform.Translate(_speed * Time.deltaTime * Vector3.forward);
+            transform.Translate(_speed * Time.deltaTime * _characterDirection);
 
             if (_time >= _lifeTime)
                 Kill();

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Homework15.Characters;
 
 namespace Homework15.Items
 {
@@ -38,7 +39,7 @@ namespace Homework15.Items
             IsCollected = true;
         }
 
-        public virtual void Use()
+        public virtual void Use(Character character)
         {
             //Debug.Log("* Item used");
             _itemEffects.FreezeEffects();

@@ -19,7 +19,7 @@ namespace Homework15.Items
         private void Update()
         {
             if (Input.GetKeyDown(_useItemKey))
-                UseItem();
+                UseItem(_character);
         }
 
         private void OnTriggerEnter(Collider other)
@@ -40,7 +40,7 @@ namespace Homework15.Items
 
         }
 
-        private void UseItem()
+        private void UseItem(Character character)
         {
             Item item = _itemSlot.Pop();
             _itemSlot.Clear();
@@ -49,7 +49,7 @@ namespace Homework15.Items
                 return;
 
             PlayParticleEffect(item);
-            item.Use();
+            item.Use(character);
         }
 
         public void PlayParticleEffect(Item item)

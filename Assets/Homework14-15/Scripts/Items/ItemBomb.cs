@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Homework15.Characters;
 
 namespace Homework15.Items
 {
@@ -11,14 +10,16 @@ namespace Homework15.Items
         [SerializeField] private float _bulletSpeed;
         [SerializeField] private float _bulletLifeTime;
 
-        public override void Use()
+        public override void Use(Character character)
         {
-            base.Use();
+            base.Use(character);
             Debug.Log($"* Bomb used");
+            
+            Vector3 characterDirection = character.transform.forward;
 
-            Bullet bullet = Instantiate(_bulletPrefab, gameObject.transform.transform);
+            Bullet bullet = Instantiate(_bulletPrefab, gameObject.transform);
             bullet.transform.parent = null;
-            bullet.Initialize(_bulletSpeed, _bulletLifeTime);
+            bullet.Initialize(_bulletSpeed, _bulletLifeTime, characterDirection);
             bullet.Fly();
         }
     }
