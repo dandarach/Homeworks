@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Homework15.Game;
 
-namespace Homework15
+namespace Homework15.Items
 {
     public class ItemSlot : MonoBehaviour
     {

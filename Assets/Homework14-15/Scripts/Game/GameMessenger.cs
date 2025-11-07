@@ -1,6 +1,7 @@
 using UnityEngine;
+using Homework15.UI;
 
-namespace Homework15
+namespace Homework15.Game
 {
     public class GameMessenger : MonoBehaviour
     {

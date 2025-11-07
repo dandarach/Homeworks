@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Homework15.Items;
 
-namespace Homework15
+namespace Homework15.Spawners
 {
     public class SpawnPoint : MonoBehaviour
     {

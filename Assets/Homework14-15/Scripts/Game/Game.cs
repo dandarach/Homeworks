@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Homework15.Characters;
+using Homework15.Spawners;
 
-namespace Homework15
+namespace Homework15.Game
 {
     public class Game : MonoBehaviour
     {

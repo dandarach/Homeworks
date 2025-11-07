@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Homework15
+namespace Homework15.Items
 {
-    public class ItemCoin : Item
+    public class ItemBomb : Item
     {
         public override void Use()
         {
             base.Use();
 
-            Debug.Log($"* Coin used");
+            Debug.Log($"* Bomb used");
         }
     }
 }

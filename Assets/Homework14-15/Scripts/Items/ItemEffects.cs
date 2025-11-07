@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using Homework15.Effects;
 
-namespace Homework15
+namespace Homework15.Items
 {
     public class ItemEffects : MonoBehaviour
     {

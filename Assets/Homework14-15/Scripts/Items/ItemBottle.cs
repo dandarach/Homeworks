@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Homework15
+namespace Homework15.Items
 {
     public class ItemBottle : Item
     {

@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Homework15
+namespace Homework15.UI
 {
     public class TextUI : MonoBehaviour
     {

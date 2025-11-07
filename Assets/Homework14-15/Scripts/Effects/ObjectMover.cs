@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Homework15
+namespace Homework15.Effects
 {
     public class ObjectMover : ObjectAnimator
 

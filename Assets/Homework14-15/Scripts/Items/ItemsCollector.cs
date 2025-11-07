@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Homework15
+namespace Homework15.Items
 {
     public class ItemsCollector : MonoBehaviour
     {

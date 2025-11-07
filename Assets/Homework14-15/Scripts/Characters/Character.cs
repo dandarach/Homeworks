@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using Homework15.Items;
 
-namespace Homework15
+namespace Homework15.Characters
 {
     public class Character : MonoBehaviour
     {
