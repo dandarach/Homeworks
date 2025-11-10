@@ -6,7 +6,7 @@ namespace Homework17.Game
 {
     public class Game : MonoBehaviour
     {
-        [SerializeField] private Character _hero;
+        [SerializeField] private Hero _hero;
         //[SerializeField] private ItemSpawner _itemSpawner;
 
        private void Awake()
