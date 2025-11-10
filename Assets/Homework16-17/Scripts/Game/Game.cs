@@ -9,9 +9,7 @@ namespace Homework17.Game
         [SerializeField] private Character _hero;
         //[SerializeField] private ItemSpawner _itemSpawner;
 
-        private bool _isRunning;
-
-        private void Awake()
+       private void Awake()
         {
             Initialize();
         }
@@ -20,8 +18,6 @@ namespace Homework17.Game
         {
             _hero.Initialize(GameSettings.CharacterSpeed, GameSettings.CharacterRotationSpeed);
             //_itemSpawner.Initialize();
-
-            _isRunning = true;
         }
     }
 }

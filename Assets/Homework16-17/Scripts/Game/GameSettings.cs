@@ -8,7 +8,7 @@ namespace Homework17.Game
         public const string HorizontalAxisName = "Horizontal";
         public const string VerticalAxisName = "Vertical";
 
-        [SerializeField] public static readonly float CharacterSpeed;
-        [SerializeField] public static readonly float CharacterRotationSpeed;
+        public const float CharacterSpeed = 5f;
+        public const float CharacterRotationSpeed = 700f;
     }
 }

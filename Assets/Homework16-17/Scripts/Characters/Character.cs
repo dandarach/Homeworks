@@ -5,32 +5,22 @@ namespace Homework17.Characters
 {
     public class Character : MonoBehaviour
     {
-        private CharacterMover _characterMover;
+        private ObjectMover _characterMover;
         
-        public void Initialize(float characterSpeed, float characterRotationSpeed)
+        public virtual void Initialize(float speed, float rotationSpeed)
         {
-            _characterMover = new CharacterMover();
-
-            bool IsCharacterControllerExists = TryGetComponent<CharacterController>(out CharacterController characterController);
-
-            if (IsCharacterControllerExists)
-            {
-                _characterMover.Initialize(characterController, characterSpeed, characterRotationSpeed);
-            }
-            else
-            {
-                Debug.LogError("Character. Unable to get CharacterController");
-            }
+            _characterMover = new ObjectMover();
+            _characterMover.Initialize(gameObject, speed, rotationSpeed);
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             Vector3 input = new Vector3(Input.GetAxisRaw(GameSettings.HorizontalAxisName), 0, Input.GetAxisRaw(GameSettings.VerticalAxisName));
 
             if (input.magnitude <= GameSettings.DeadZone)
                 return;
 
-            _characterMover.RotateAndMoveTo(input);
+            _characterMover.Move(input);
         }
     }
 }
