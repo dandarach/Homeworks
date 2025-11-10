@@ -1,24 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Homework17.Interfaces;
 
 namespace Homework17.Spawners
 {
-    public class ItemSpawner : MonoBehaviour
+    public class ItemSpawner
     {
-        //[SerializeField] private List<Item> _itemPrefabVariants;
+        [SerializeField] private List<SpawnPoint> _spawnPoints;
+        [SerializeField] private List<ISpawnable> _itemPrefabs;
 
-        public void Initialize(List<SpawnPoint> _spawnPoints)
+        public void Initialize(List<SpawnPoint> spawnPoints)
         {
-            for (int i  = 0; i < _spawnPoints.Count; i++)
-            {
-
-            }
-
-            //Item newItem = Instantiate(itemPrefab, spawnPoint.Position, Quaternion.identity);
-            //newItem.Initialize();
+            _spawnPoints = spawnPoints;
         }
 
-        //private void CreateItem()
+        public void SpawnAllItems()
+        {
+            foreach (SpawnPoint item in _spawnPoints)
+            {
+                //SpawnItem(item);
+            }
+        }
+
+        private void SpawnItem(ISpawnable item)
+        {
+           // item.Spawn();
+        }
     }
 }
