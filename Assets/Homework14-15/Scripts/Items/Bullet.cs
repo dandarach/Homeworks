@@ -7,14 +7,14 @@ namespace Homework15.Items
         private float _speed;
         private float _lifeTime;
         private float _time;
-        private Vector3 _characterDirection;
+        private Vector3 _direction;
         private bool _isRunning;
 
-        public void Initialize(float speed, float lifeTime, Vector3 characterDirection)
+        public void Initialize(float speed, float lifeTime, Vector3 direction)
         {
             _speed = speed;
             _lifeTime = lifeTime;
-            _characterDirection = characterDirection;
+            _direction = direction;
             _isRunning = false;
         }
 
@@ -31,7 +31,7 @@ namespace Homework15.Items
 
             _time += Time.deltaTime;
 
-            transform.Translate(_speed * Time.deltaTime * _characterDirection);
+            transform.Translate(_speed * Time.deltaTime * _direction);
 
             if (_time >= _lifeTime)
                 Kill();

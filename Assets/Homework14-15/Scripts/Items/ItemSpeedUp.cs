@@ -3,7 +3,7 @@ using Homework15.Characters;
 
 namespace Homework15.Items
 {
-    public class ItemBottle : Item
+    public class ItemSpeedUp : Item
     {
         [Space]
         [SerializeField] private float _additionalSpeed;
