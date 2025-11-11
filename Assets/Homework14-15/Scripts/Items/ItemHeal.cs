@@ -1,3 +1,4 @@
+using Homework15.Controllers;
 using UnityEngine;
 
 namespace Homework15.Items
@@ -10,7 +11,11 @@ namespace Homework15.Items
         protected override void OnUse(GameObject gameObject)
         {
             Debug.Log($"* Coin used");
-            //character.Heal(_additionalHealth);
+ 
+            HealthController healthController = gameObject.GetComponent<HealthController>();
+
+            if (healthController != null)
+                healthController.IncreaseHealth(_additionalHealth);
         }
     }
 }

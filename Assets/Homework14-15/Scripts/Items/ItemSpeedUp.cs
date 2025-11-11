@@ -1,4 +1,5 @@
 using UnityEngine;
+using Homework15.Controllers;
 
 namespace Homework15.Items
 {
@@ -10,7 +11,11 @@ namespace Homework15.Items
         protected override void OnUse(GameObject gameObject)
         {
             Debug.Log($"* Bottle used");
-            //character.SpeedUp(_additionalSpeed);
+
+            MoveController moveController = gameObject.GetComponent<MoveController>();
+
+            if (moveController != null)
+                moveController.SpeedUp(_additionalSpeed);
         }
     }
 }

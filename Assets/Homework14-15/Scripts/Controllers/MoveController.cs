@@ -19,10 +19,12 @@ namespace Homework15.Controllers
         {
             _characterMover = new CharacterMover();
             
-            CharacterController characterController = GetComponent<CharacterController>();
-
-            if (characterController != null)
-                _characterMover.Initialize(characterController, _characterInitialSpeed, _characterMaximumSpeed, _characterRotationSpeed);
+            if (TryGetComponent<CharacterController>(out CharacterController characterController))
+                _characterMover.Initialize(
+                    characterController,
+                    _characterInitialSpeed,
+                    _characterMaximumSpeed,
+                    _characterRotationSpeed);
             else
                 Debug.LogError("Character. Unable to get CharacterController");
         }

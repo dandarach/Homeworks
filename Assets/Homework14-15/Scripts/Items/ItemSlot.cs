@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Homework15.UI;
 
 namespace Homework15.Items
 {
@@ -9,7 +8,6 @@ namespace Homework15.Items
     {
         [SerializeField] private Transform _slotLocation;
         [SerializeField] private Vector3 _slotLocationCorrection;
-        [SerializeField] private GameMessenger _gameMessenger;
 
         private Item _item;
 
@@ -37,7 +35,6 @@ namespace Homework15.Items
             if (IsEmpty)
             {
                 Debug.LogWarning("You have no items!");
-                _gameMessenger.PrintEmptySlotMessage();
                 
                 return null;
             }
