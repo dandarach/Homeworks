@@ -48,20 +48,7 @@ namespace Homework15.Items
             if (item == null)
                 return;
 
-            PlayParticleEffect(item);
             item.Use(character);
-        }
-
-        public void PlayParticleEffect(Item item)
-        {
-            ParticleSystem itemParticleEffectPrefab = item.GetItemEffectPrefab();
-
-            if (itemParticleEffectPrefab == null)
-                return;
-
-            ParticleSystem itemParticleEffect = Instantiate(itemParticleEffectPrefab, item.transform, false);
-            itemParticleEffect.transform.parent = null;
-            itemParticleEffect.Play();
         }
     }
 }

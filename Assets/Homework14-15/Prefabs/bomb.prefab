@@ -124,6 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _time: 6
+  _killEffectPrefab: {fileID: 1301697207402410478, guid: 1b0bd5f4497bf014abfaa977b50fb6b3,
+    type: 3}
 --- !u!114 &2667276834343262074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,8 +169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemEffects: {fileID: 8635839723490509487}
   _collectEffect: {fileID: 5643036570762516989}
-  _useEffectPrefab: {fileID: 1301697207402410478, guid: 1b0bd5f4497bf014abfaa977b50fb6b3,
-    type: 3}
 --- !u!114 &8635839723490509487
 MonoBehaviour:
   m_ObjectHideFlags: 0

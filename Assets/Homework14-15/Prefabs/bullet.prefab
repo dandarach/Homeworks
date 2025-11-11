@@ -164,7 +164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe6f32c7d07c6d44bafde3574884b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _time: 4
+  _time: 1
+  _killEffectPrefab: {fileID: 1301697207402410478, guid: 1b0bd5f4497bf014abfaa977b50fb6b3,
+    type: 3}
 --- !u!1001 &8531699103952954794
 PrefabInstance:
   m_ObjectHideFlags: 0

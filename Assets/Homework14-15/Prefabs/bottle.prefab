@@ -139,8 +139,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemEffects: {fileID: 947346119294141416}
   _collectEffect: {fileID: 4973529215210312829}
-  _useEffectPrefab: {fileID: 8884371268655795233, guid: 49016cc6049c12f4abc8e0559c65ddbd,
-    type: 3}
   _additionalSpeed: 2
 --- !u!114 &4175014659409267967
 MonoBehaviour:
@@ -155,6 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _time: 4
+  _killEffectPrefab: {fileID: 8884371268655795233, guid: 49016cc6049c12f4abc8e0559c65ddbd,
+    type: 3}
 --- !u!114 &947346119294141416
 MonoBehaviour:
   m_ObjectHideFlags: 0
