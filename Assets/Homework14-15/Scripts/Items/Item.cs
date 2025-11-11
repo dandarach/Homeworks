@@ -6,27 +6,29 @@ namespace Homework15.Items
 {
     public abstract class Item : MonoBehaviour
     {
-        [SerializeField] private ItemEffects _itemEffects;
-        [SerializeField] private ParticleSystem _collectEffect;
-
-        private float _time;
+        private ItemView _itemView;
         private AutoDestroy _objectKiller;
 
         public bool IsCollected { get; private set; } = false;
 
         public void Initialize()
         {
-            _itemEffects.Initialize();
             _objectKiller = GetComponent<AutoDestroy>();
 
             if (_objectKiller == null)
                 Debug.LogError("Undable to get AutoDestroy Component");
+
+            _itemView = GetComponent<ItemView>();
+
+            if (_itemView == null)
+                Debug.LogError("Undable to get ItemView Component");
+            else
+                _itemView.Initialize();
         }
 
         public void Collect()
         {
-            _itemEffects.FreezeEffects();
-            _collectEffect.Play();
+            _itemView.PlayCollectEffect();
             _objectKiller.Off();
             IsCollected = true;
         }
@@ -34,7 +36,7 @@ namespace Homework15.Items
         public void Use(Character character)
         {
             OnUse(character);
-            _itemEffects.FreezeEffects();
+            _itemView.PlayUseEffect();
             _objectKiller.Kill();
         }
 

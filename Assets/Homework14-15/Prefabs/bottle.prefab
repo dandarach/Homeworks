@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4371782021954704268}
   - component: {fileID: 2859091334763949637}
   - component: {fileID: 6687447918131871381}
+  - component: {fileID: 8906165580140734286}
   - component: {fileID: 8437024739994092845}
   - component: {fileID: 7362936691292606715}
   - component: {fileID: 4175014659409267967}
@@ -110,6 +111,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.44285664
   m_Center: {x: 0.000000029802322, y: 0.44285795, z: 0.00000023841858}
+--- !u!114 &8906165580140734286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3429588954226133430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd3719b94a0a3ee4f8176ac55b9c7ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _itemEffects: {fileID: 947346119294141416}
+  _collectEffect: {fileID: 4973529215210312829}
 --- !u!114 &8437024739994092845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,8 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72010a83cfd4d2f4a980023bb2fefec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemEffects: {fileID: 947346119294141416}
-  _collectEffect: {fileID: 4973529215210312829}
   _additionalSpeed: 2
 --- !u!114 &4175014659409267967
 MonoBehaviour:
