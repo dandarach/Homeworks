@@ -1,5 +1,4 @@
 using UnityEngine;
-using Homework15.Characters;
 using Homework15.Utils;
 
 namespace Homework15.Items
@@ -33,13 +32,13 @@ namespace Homework15.Items
             IsCollected = true;
         }
 
-        public void Use(Character character)
+        public void Use(GameObject gameObject)
         {
-            OnUse(character);
+            OnUse(gameObject);
             _itemView.PlayUseEffect();
             _objectKiller.Kill();
         }
 
-        protected abstract void OnUse(Character character);
+        protected abstract void OnUse(GameObject gameObject);
     }
 }

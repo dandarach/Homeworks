@@ -1,5 +1,4 @@
 using UnityEngine;
-using Homework15.Characters;
 
 namespace Homework15.Items
 {
@@ -8,10 +7,10 @@ namespace Homework15.Items
         [Space]
         [SerializeField] private int _additionalHealth;
 
-        protected override void OnUse(Character character)
+        protected override void OnUse(GameObject gameObject)
         {
             Debug.Log($"* Coin used");
-            character.Heal(_additionalHealth);
+            //character.Heal(_additionalHealth);
         }
     }
 }

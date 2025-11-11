@@ -1,5 +1,4 @@
 using UnityEngine;
-using Homework15.Characters;
 
 namespace Homework15.Items
 {
@@ -8,10 +7,10 @@ namespace Homework15.Items
         [Space]
         [SerializeField] private float _additionalSpeed;
 
-        protected override void OnUse(Character character)
+        protected override void OnUse(GameObject gameObject)
         {
             Debug.Log($"* Bottle used");
-            character.SpeedUp(_additionalSpeed);
+            //character.SpeedUp(_additionalSpeed);
         }
     }
 }

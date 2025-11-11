@@ -19,7 +19,7 @@ namespace Homework15.Items
         private void Update()
         {
             if (Input.GetKeyDown(_useItemKey))
-                UseItem(_character);
+                UseItem(_character.gameObject);
         }
 
         private void OnTriggerEnter(Collider other)
@@ -40,7 +40,7 @@ namespace Homework15.Items
 
         }
 
-        private void UseItem(Character character)
+        private void UseItem(GameObject gameObject)
         {
             Item item = _itemSlot.Pop();
             _itemSlot.Clear();
@@ -48,7 +48,7 @@ namespace Homework15.Items
             if (item == null)
                 return;
 
-            item.Use(character);
+            item.Use(gameObject);
         }
     }
 }
