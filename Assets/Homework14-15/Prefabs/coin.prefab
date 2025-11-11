@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 1760384133811708305}
   - component: {fileID: 8022256225092719584}
   - component: {fileID: 6030232245392231427}
+  - component: {fileID: 7729199352192610066}
   m_Layer: 0
   m_Name: coin
   m_TagString: Untagged
@@ -183,7 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7121e2e968274ed48b0d3463bf79c178, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destroyTime: 4
   _itemEffects: {fileID: 6030232245392231427}
   _collectEffect: {fileID: 7030392820582690322}
   _useEffectPrefab: {fileID: 2095606205811567574, guid: 2e868867b013c234fa8c850024e62211,
@@ -204,6 +204,19 @@ MonoBehaviour:
   _objectAnimators:
   - {fileID: 7760290980160570992}
   - {fileID: 1760384133811708305}
+--- !u!114 &7729199352192610066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484536769578148672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe6f32c7d07c6d44bafde3574884b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _time: 5
 --- !u!1001 &7847323955231636449
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,40 +1,34 @@
 using UnityEngine;
 using Homework15.Characters;
+using Homework15.Utils;
 
 namespace Homework15.Items
 {
     public abstract class Item : MonoBehaviour
     {
-        [SerializeField] private float _destroyTime;
         [SerializeField] private ItemEffects _itemEffects;
         [SerializeField] private ParticleSystem _collectEffect;
         [SerializeField] private ParticleSystem _useEffectPrefab;
 
         private float _time;
+        private ObjectKiller _objectKiller;
 
         public bool IsCollected { get; private set; } = false;
 
         public void Initialize()
         {
             _itemEffects.Initialize();
-            _time = _destroyTime;
-        }
+            _objectKiller = GetComponent<ObjectKiller>();
 
-        private void Update()
-        {
-            if (IsCollected)
-                return;
-
-            _time -= Time.deltaTime;
-
-            if (_time <= 0 && IsCollected == false)
-                Kill();
+            if (_objectKiller == null)
+                Debug.LogError("Undable to get ObjectKiller Component");
         }
 
         public void Collect()
         {
             _itemEffects.FreezeEffects();
             _collectEffect.Play();
+            _objectKiller.Off();
             IsCollected = true;
         }
 
@@ -42,16 +36,11 @@ namespace Homework15.Items
         {
             OnUse(character);
             _itemEffects.FreezeEffects();
-            Kill();
+            _objectKiller.Kill();
         }
 
         protected abstract void OnUse(Character character);
 
         public ParticleSystem GetItemEffectPrefab() => _useEffectPrefab;
-
-        private void Kill()
-        {
-            Destroy(gameObject);
-        }
     }
 }

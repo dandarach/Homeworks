@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6687447918131871381}
   - component: {fileID: 8437024739994092845}
   - component: {fileID: 7362936691292606715}
+  - component: {fileID: 4175014659409267967}
   - component: {fileID: 947346119294141416}
   m_Layer: 0
   m_Name: bottle
@@ -136,12 +137,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72010a83cfd4d2f4a980023bb2fefec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destroyTime: 5
   _itemEffects: {fileID: 947346119294141416}
   _collectEffect: {fileID: 4973529215210312829}
   _useEffectPrefab: {fileID: 8884371268655795233, guid: 49016cc6049c12f4abc8e0559c65ddbd,
     type: 3}
   _additionalSpeed: 2
+--- !u!114 &4175014659409267967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3429588954226133430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe6f32c7d07c6d44bafde3574884b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _time: 4
 --- !u!114 &947346119294141416
 MonoBehaviour:
   m_ObjectHideFlags: 0

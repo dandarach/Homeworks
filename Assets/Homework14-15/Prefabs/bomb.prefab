@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 620416908494019858}
   - component: {fileID: 6370166711665095858}
   - component: {fileID: 4749673924927404135}
+  - component: {fileID: 4277440106231780689}
   - component: {fileID: 2667276834343262074}
   - component: {fileID: 1543863486585241097}
   - component: {fileID: 7428613887271267444}
@@ -110,6 +111,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5044614
   m_Center: {x: -0.000000074505806, y: 0.10446142, z: 0.000000059604645}
+--- !u!114 &4277440106231780689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2309506473559663753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe6f32c7d07c6d44bafde3574884b65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _time: 6
 --- !u!114 &2667276834343262074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +153,6 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 8529426339646290933, guid: 1d22eb6a7949f844bafdbddf6189163d,
     type: 3}
   _bulletSpeed: 20
-  _bulletLifeTime: 5
 --- !u!114 &7428613887271267444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6b06f511933b941864a5646e7096fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destroyTime: 10
   _itemEffects: {fileID: 8635839723490509487}
   _collectEffect: {fileID: 5643036570762516989}
   _useEffectPrefab: {fileID: 1301697207402410478, guid: 1b0bd5f4497bf014abfaa977b50fb6b3,
