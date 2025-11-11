@@ -12,10 +12,7 @@ namespace Homework15.Items
             Shooter shooter = GetComponent<Shooter>();
 
             if ( shooter != null )
-            {
-                //shooter.Shoot(shootDirection);
                 shooter.Shoot(character.transform);
-            }
         }
     }
 }

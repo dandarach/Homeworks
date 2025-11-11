@@ -9,13 +9,12 @@ namespace Homework15.Items
         [Space]
         [SerializeField] private Bullet _bulletPrefab;
         [SerializeField] private float _bulletSpeed;
-        [SerializeField] private float _bulletLifeTime;
 
         public void Shoot(Transform firePoint)
         {
             Bullet bullet = Instantiate(_bulletPrefab, transform.position, firePoint.rotation);
             bullet.transform.parent = null;
-            bullet.Fly(_bulletSpeed, _bulletLifeTime);
+            bullet.Fly(_bulletSpeed);
         }
     }
 }
