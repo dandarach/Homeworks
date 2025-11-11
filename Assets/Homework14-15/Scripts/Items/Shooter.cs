@@ -11,12 +11,11 @@ namespace Homework15.Items
         [SerializeField] private float _bulletSpeed;
         [SerializeField] private float _bulletLifeTime;
 
-        public void Shoot(Vector3 direction)
+        public void Shoot(Transform firePoint)
         {
-            Bullet bullet = Instantiate(_bulletPrefab, gameObject.transform);
+            Bullet bullet = Instantiate(_bulletPrefab, transform.position, firePoint.rotation);
             bullet.transform.parent = null;
-            bullet.Initialize(_bulletSpeed, _bulletLifeTime, direction);
-            bullet.Fly();
+            bullet.Fly(_bulletSpeed, _bulletLifeTime);
         }
     }
 }

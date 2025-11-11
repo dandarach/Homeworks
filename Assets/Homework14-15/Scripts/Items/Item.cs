@@ -38,11 +38,14 @@ namespace Homework15.Items
             IsCollected = true;
         }
 
-        public virtual void Use(Character character)
+        public void Use(Character character)
         {
+            OnUse(character);
             _itemEffects.FreezeEffects();
             Kill();
         }
+
+        protected abstract void OnUse(Character character);
 
         public ParticleSystem GetItemEffectPrefab() => _useEffectPrefab;
 

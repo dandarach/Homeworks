@@ -7,20 +7,14 @@ namespace Homework15.Items
         private float _speed;
         private float _lifeTime;
         private float _time;
-        private Vector3 _direction;
         private bool _isRunning;
 
-        public void Initialize(float speed, float lifeTime, Vector3 direction)
-        {
-            _speed = speed;
-            _lifeTime = lifeTime;
-            _direction = direction;
-            _isRunning = false;
-        }
-
-        public void Fly()
+        public void Fly(float speed, float lifeTime)
         {
             Debug.Log("Bullet started");
+
+            _speed = speed;
+            _lifeTime = lifeTime;
             _isRunning = true;
         }
 
@@ -31,7 +25,7 @@ namespace Homework15.Items
 
             _time += Time.deltaTime;
 
-            transform.Translate(_speed * Time.deltaTime * _direction);
+            transform.Translate(_speed * Time.deltaTime * Vector3.forward);
 
             if (_time >= _lifeTime)
                 Kill();

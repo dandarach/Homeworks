@@ -8,10 +8,8 @@ namespace Homework15.Items
         [Space]
         [SerializeField] private int _additionalHealth;
 
-        public override void Use(Character character)
+        protected override void OnUse(Character character)
         {
-            base.Use(character);
-
             Debug.Log($"* Coin used");
             character.Heal(_additionalHealth);
         }

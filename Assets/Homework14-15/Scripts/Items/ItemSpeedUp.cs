@@ -8,10 +8,8 @@ namespace Homework15.Items
         [Space]
         [SerializeField] private float _additionalSpeed;
 
-        public override void Use(Character character)
+        protected override void OnUse(Character character)
         {
-            base.Use(character);
-
             Debug.Log($"* Bottle used");
             character.SpeedUp(_additionalSpeed);
         }
