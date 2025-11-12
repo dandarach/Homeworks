@@ -19,7 +19,7 @@ namespace Homework17.Characters
                 Debug.LogError("Unable to get CharacterController");
         }
 
-        protected virtual void Update()
+        protected void Update()
         {
             Vector3 direction = GetDirection();
             

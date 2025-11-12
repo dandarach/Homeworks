@@ -1,4 +1,3 @@
-using Homework17.Interfaces;
 using UnityEngine;
 
 namespace Homework17.Characters

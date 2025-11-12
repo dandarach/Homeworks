@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using Homework17.Characters;
-//using Homework17.Spawners;
+using Homework17.Spawners;
 
 namespace Homework17.Game
 {
     public class Game : MonoBehaviour
     {
         [SerializeField] private Hero _hero;
-        //[SerializeField] private ItemSpawner _itemSpawner;
+        [SerializeField] private ItemSpawner _itemSpawner;
 
        private void Awake()
         {
@@ -17,7 +17,8 @@ namespace Homework17.Game
         private void Initialize()
         {
             _hero.Initialize(GameSettings.CharacterSpeed, GameSettings.CharacterRotationSpeed);
-            //_itemSpawner.Initialize();
+            _itemSpawner.Initialize();
+            _itemSpawner.SpawnAllItems();
         }
     }
 }

@@ -2,30 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Homework17.Interfaces;
+using Homework17.Characters;
 
 namespace Homework17.Spawners
 {
-    public class ItemSpawner
+    public class ItemSpawner : MonoBehaviour
     {
+        [SerializeField] private Enemy _enemyPrefab;
         [SerializeField] private List<SpawnPoint> _spawnPoints;
-        [SerializeField] private List<ISpawnable> _itemPrefabs;
 
-        public void Initialize(List<SpawnPoint> spawnPoints)
+        public void Initialize()
         {
-            _spawnPoints = spawnPoints;
         }
 
         public void SpawnAllItems()
         {
-            foreach (SpawnPoint item in _spawnPoints)
+            foreach(SpawnPoint spawnPoint in _spawnPoints)
             {
-                //SpawnItem(item);
+               SpawnItem(spawnPoint);
             }
         }
 
-        private void SpawnItem(ISpawnable item)
+        public void SpawnItem(SpawnPoint spawnPoint)
         {
-           // item.Spawn();
+            Enemy newenemy = Instantiate(_enemyPrefab, spawnPoint.transform.position, Quaternion.identity);
         }
     }
 }
