@@ -1,14 +1,19 @@
+using Homework15.Spawners;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Homework17.Interfaces;
-using Homework17.Characters;
+
 
 namespace Homework17.Spawners
 {
-    public class ItemSpawner : MonoBehaviour
+    public class ItemSpawner
     {
-        [SerializeField] private List<SpawnPoint> _spawnPoints;
+        private List<SpawnPoint> _spawnPoints;
+
+        public void Initialize(List<SpawnPoint> spawnPoints)
+        {
+            _spawnPoints = spawnPoints;
+        }
 
         public void SpawnAllItems()
         {

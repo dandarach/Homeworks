@@ -4,7 +4,7 @@ using Homework17.Spawners;
 
 namespace Homework17.Characters
 {
-    public class Enemy : MonoBehaviour, ISpawnable
+    public class Enemy : MonoBehaviour
     {
         private IIdleBehavior _idleBehavior;
         private IAngryBehavior _angryBehavior;
@@ -18,10 +18,5 @@ namespace Homework17.Characters
         public void Idle() => _idleBehavior.Idle();
 
         public void Attack() => _angryBehavior.Attack();
-
-        public void Spawn()
-        {
-            //
-        }
     }
 }

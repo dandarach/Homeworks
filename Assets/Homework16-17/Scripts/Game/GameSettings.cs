@@ -16,13 +16,13 @@ namespace Homework17.Game
             Stay,
             Patrol,
             RandomPatrol
-        };
+        }
 
         public enum EnemyAngryBehavior
         {
             Chase,
             RunAway,
             Explode
-        };
+        }
     }
 }
