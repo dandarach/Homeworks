@@ -17,7 +17,6 @@ namespace Homework17.Game
         private void Initialize()
         {
             _hero.Initialize(GameSettings.CharacterSpeed, GameSettings.CharacterRotationSpeed);
-            _itemSpawner.Initialize();
             _itemSpawner.SpawnAllItems();
         }
     }
