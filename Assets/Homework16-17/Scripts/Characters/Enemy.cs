@@ -1,15 +1,23 @@
 ﻿using UnityEngine;
 using Homework17.Behaviors;
-using Homework17.Spawners;
+using Homework17.Utils;
 
 namespace Homework17.Characters
 {
     public class Enemy : MonoBehaviour
     {
+        private DistanceDetector _distanceDetector;
+
         private IIdleBehavior _idleBehavior;
         private IAngryBehavior _angryBehavior;
 
-        public void Initialize(IIdleBehavior idleBehavior, IAngryBehavior angryBehavior)
+        public void Initialize(Transform detectTarget, float _minDistanceForDetect)
+        {
+            _distanceDetector = gameObject.AddComponent<DistanceDetector>();
+            _distanceDetector.Initialize(transform, detectTarget, _minDistanceForDetect);
+        }
+
+        public void SetBehavior(IIdleBehavior idleBehavior, IAngryBehavior angryBehavior)
         {
             _idleBehavior = idleBehavior;
             _angryBehavior = angryBehavior;
@@ -20,3 +28,4 @@ namespace Homework17.Characters
         public void Attack() => _angryBehavior.Attack();
     }
 }
+ 

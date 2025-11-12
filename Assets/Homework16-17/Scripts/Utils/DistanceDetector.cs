@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Homework17
+namespace Homework17.Utils
 {
     public class DistanceDetector : MonoBehaviour
     {
