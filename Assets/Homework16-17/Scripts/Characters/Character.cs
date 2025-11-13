@@ -6,7 +6,7 @@ namespace Homework17.Characters
     public abstract class Character : MonoBehaviour
     {
         private CharacterMover _characterMover;
-        
+
         public virtual void Initialize(float speed, float rotationSpeed)
         {
             _characterMover = new CharacterMover();

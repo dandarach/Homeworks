@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Homework17.Utils
 {
@@ -19,6 +21,12 @@ namespace Homework17.Utils
 
         public bool IsDetectStateChanged { get; private set; }
 
+        public bool IsDetected
+        {
+            get { return Distance <= _minDistanceForDetect; }
+            private set { IsDetected = value; }
+        }
+
         public void Initialize(Transform firstPoint, Transform secondPoint, float minDistanceForDetect)
         {
             _firstPoint = firstPoint;
@@ -28,19 +36,18 @@ namespace Homework17.Utils
             
             UpdateDistance();
 
-            if (IsDetected())
+            if (IsDetected)
                 _currentDetectState = _lastDetectState = true;
             else
                 _currentDetectState = _lastDetectState = false;
         }
 
-        public bool IsDetected() => Distance <= _minDistanceForDetect;
 
         private void Update()
         {
             UpdateDistance();
 
-            if (IsDetected())
+            if (IsDetected)
             {
                 Debug.DrawLine(_firstPoint.position, _secondPoint.position, _detectedLineColor);
                 _currentDetectState = true;

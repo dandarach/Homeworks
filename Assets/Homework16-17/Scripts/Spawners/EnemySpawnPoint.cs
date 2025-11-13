@@ -19,11 +19,8 @@ namespace Homework17.Spawners
         public override void Spawn()
         {
             Enemy newEnemy = Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
-            newEnemy.Initialize(Transform _detectTarget, GameSettings.MinDistanceToDetect);
-            
-           // switch (_enemyIdleBehavior.Stay):
-            
-           // newEnemy.Initialize(new PatrolIdleBehavior(), _enemyAngryBehavior);
+            newEnemy.transform.parent = null;
+            newEnemy.Initialize(new PatrolIdleBehavior(), new ChaseAngryBehaviour());
         }
     }
 }
