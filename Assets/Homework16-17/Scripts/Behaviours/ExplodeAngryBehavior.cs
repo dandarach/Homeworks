@@ -3,7 +3,7 @@ using Homework17.Behaviors;
 
 namespace Homework17.Behaviors
 {
-    public class ExplodeAngryBehaviour : IAngryBehavior
+    public class ExplodeAngryBehavior : IAngryBehavior
     {
        public void Attack()
         {

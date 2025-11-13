@@ -29,6 +29,8 @@ namespace Homework17.Characters
                 _distanceDetector = gameObject.AddComponent<DistanceDetector>();
                 _distanceDetector.Initialize(transform, _heroTransform, GameSettings.MinDistanceToDetect);
             }
+
+            Idle();
         }
 
         private void Update()
@@ -36,9 +38,15 @@ namespace Homework17.Characters
             if (_distanceDetector.IsDetectStateChanged)
             {
                 if (_distanceDetector.IsDetected)
-                    Debug.Log("Attack()");
+                {
+                    Debug.Log("+ Angry");
+                    Attack();
+                }
                 else
-                    Debug.Log("Idle()");
+                {
+                    Debug.Log("- Idle");
+                    Idle();
+                }
             }
         }
 

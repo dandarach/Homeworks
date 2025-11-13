@@ -13,6 +13,9 @@ namespace Homework17.Spawners
         public void Initialize(List<SpawnPoint> spawnPoints)
         {
             _spawnPoints = spawnPoints;
+
+            foreach (SpawnPoint spawnPoint in _spawnPoints)
+                spawnPoint.Initialize();
         }
 
         public void SpawnAllItems()
