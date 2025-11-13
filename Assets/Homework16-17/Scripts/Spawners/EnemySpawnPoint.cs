@@ -14,10 +14,6 @@ namespace Homework17.Spawners
         private IIdleBehavior _idleBehavior;
         private IAngryBehavior _angryBehavior;
 
-        public GameSettings.EnemyIdleBehavior IdleBehavior => _enemyIdleBehavior;
-
-        public GameSettings.EnemyAngryBehavior AngryBehavior => _enemyAngryBehavior;
-
         public override void Initialize()
         {
             _idleBehavior = SetIdleBehavior();

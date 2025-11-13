@@ -2,23 +2,21 @@ using UnityEngine;
 
 namespace Homework17.Characters
 {
-    public class CharacterMover
+    public class EnemyMover
     {
         private readonly Color DebugRayColor = Color.yellow;
 
         private float _speed;
         private float _rotationSpeed;
 
-        private CharacterController _characterController;
         private Transform _initialTransform;
 
         public float Speed { get { return _speed; } }
 
-        public void Initialize(CharacterController characterController, float speed, float rotationSpeed)
+        public void Initialize(float speed, float rotationSpeed)
         {
             _speed = speed;
             _rotationSpeed = rotationSpeed;
-            _characterController = characterController;
             _initialTransform = characterController.transform;
         }
 

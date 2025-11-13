@@ -39,12 +39,12 @@ namespace Homework17.Characters
             {
                 if (_distanceDetector.IsDetected)
                 {
-                    Debug.Log("+ Angry");
+                    //Debug.Log("+ Angry");
                     Attack();
                 }
                 else
                 {
-                    Debug.Log("- Idle");
+                    //Debug.Log("- Idle");
                     Idle();
                 }
             }

@@ -14,6 +14,7 @@ namespace Homework17.Utils
         private bool _currentDetectState;
         private bool _lastDetectState;
 
+        private Color _debugLineColor;
         private Color _detectedLineColor = Color.green;
         private Color _undetectedLineColor = Color.red;
 
@@ -49,14 +50,16 @@ namespace Homework17.Utils
 
             if (IsDetected)
             {
-                Debug.DrawLine(_firstPoint.position, _secondPoint.position, _detectedLineColor);
+                _debugLineColor = _detectedLineColor;
                 _currentDetectState = true;
             }
             else
             {
-                Debug.DrawLine(_firstPoint.position, _secondPoint.position, _undetectedLineColor);
+                _debugLineColor = _undetectedLineColor;
                 _currentDetectState = false;
             }
+            
+            Debug.DrawLine(_firstPoint.position, _secondPoint.position, _debugLineColor);
 
             IsDetectStateChanged = (_currentDetectState != _lastDetectState) ? true : false;
             _lastDetectState = _currentDetectState;
