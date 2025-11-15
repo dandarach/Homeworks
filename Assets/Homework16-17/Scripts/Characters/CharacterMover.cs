@@ -9,23 +9,24 @@ namespace Homework17.Characters
         private float _speed;
         private float _rotationSpeed;
 
-        private CharacterController _characterController;
+        private GameObject _objectToMove;
         private Transform _initialTransform;
 
         public float Speed { get { return _speed; } }
 
-        public void Initialize(CharacterController characterController, float speed, float rotationSpeed)
+        public void Initialize(GameObject objectToMove, float speed, float rotationSpeed)
         {
+            Debug.Log("CharacterMover.Initialize");
             _speed = speed;
             _rotationSpeed = rotationSpeed;
-            _characterController = characterController;
-            _initialTransform = characterController.transform;
+            _initialTransform = objectToMove.transform;
+            _objectToMove = objectToMove;
         }
 
         public void MoveTo(Vector3 direction)
         {
-            _characterController.Move(_speed * Time.deltaTime * direction.normalized);
-            Debug.DrawRay(_characterController.transform.position, direction, DebugRayColor);
+            _objectToMove.transform.Translate(_speed * Time.deltaTime * direction.normalized, Space.World);
+            Debug.DrawRay(_objectToMove.transform.position, direction, DebugRayColor);
         }
 
         public void RotateTo(Vector3 direction)
@@ -33,7 +34,7 @@ namespace Homework17.Characters
             Quaternion lookRotation = Quaternion.LookRotation(direction.normalized);
             float step = _rotationSpeed * Time.deltaTime;
 
-            _characterController.transform.rotation = Quaternion.RotateTowards(_characterController.transform.rotation, lookRotation, step);
+            _objectToMove.transform.rotation = Quaternion.RotateTowards(_objectToMove.transform.rotation, lookRotation, step);
         }
 
         public void MoveAndRotate(Vector3 direction)
@@ -44,9 +45,9 @@ namespace Homework17.Characters
 
         public void ResetTransform()
         {
-            _characterController.transform.position = _initialTransform.position;
-            _characterController.transform.rotation = _initialTransform.rotation;
-            _characterController.transform.localScale = _initialTransform.localScale;
+            _objectToMove.transform.position = _initialTransform.position;
+            _objectToMove.transform.rotation = _initialTransform.rotation;
+            _objectToMove.transform.localScale = _initialTransform.localScale;
         }
     }
 }

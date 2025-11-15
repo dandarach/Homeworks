@@ -9,14 +9,16 @@ namespace Homework17.Characters
 
         public virtual void Initialize(float speed, float rotationSpeed)
         {
+            Debug.Log("Character.Initialize");
             _characterMover = new CharacterMover();
+            _characterMover.Initialize(gameObject, speed, rotationSpeed);
+            
+            //bool IsCharacterControllerExists = TryGetComponent<CharacterController>(out CharacterController characterController);
 
-            bool IsCharacterControllerExists = TryGetComponent<CharacterController>(out CharacterController characterController);
-
-            if (IsCharacterControllerExists)
-                _characterMover.Initialize(characterController, speed, rotationSpeed);
-            else
-                Debug.LogError("Unable to get CharacterController");
+            //if (IsCharacterControllerExists)
+            //    _characterMover.Initialize(speed, rotationSpeed);
+            //else
+            //    Debug.LogError("Unable to get CharacterController");
         }
 
         protected void Update()
