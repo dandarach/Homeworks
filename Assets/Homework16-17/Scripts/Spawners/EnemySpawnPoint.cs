@@ -8,58 +8,60 @@ namespace Homework17.Spawners
     public class EnemySpawnPoint : SpawnPoint
     {
         [SerializeField] private Enemy _enemyPrefab;
-        [SerializeField] private GameSettings.EnemyIdleBehavior _enemyIdleBehavior;
-        [SerializeField] private GameSettings.EnemyAngryBehavior _enemyAngryBehavior;
+        [SerializeField] private Transform _hero;
 
-        private IIdleBehavior _idleBehavior;
-        private IAngryBehavior _angryBehavior;
+        [SerializeField] private GameSettings.EnemyIdleBehavior _idleBehaviorType;
+        [SerializeField] private GameSettings.EnemyReactBehavior _reactBehaviorType;
+
+        private IBehavior _idleBehavior;
+        private IBehavior _reactBehavior;
 
         public override void Initialize()
         {
             _idleBehavior = SetIdleBehavior();
-            _angryBehavior = SetAngryBehavior();
+            _reactBehavior = SetAngryBehavior();
         }
 
         public override void Spawn()
         {
             Enemy newEnemy = Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
             newEnemy.transform.parent = null;
-            newEnemy.Initialize(_idleBehavior, _angryBehavior);
+            newEnemy.Initialize(_idleBehavior, _reactBehavior, _hero);
         }
 
-        private IIdleBehavior SetIdleBehavior()
+        private IBehavior SetIdleBehavior()
         {
-            switch (_enemyIdleBehavior)
+            switch (_idleBehaviorType)
             {
                 case GameSettings.EnemyIdleBehavior.Stay:
-                    return new StayIdleBehavior();
+                    return new StayBehavior();
 
                 case GameSettings.EnemyIdleBehavior.Patrol:
-                    return new PatrolIdleBehavior();
+                    return new PatrolBehavior();
 
                 case GameSettings.EnemyIdleBehavior.RandomPatrol:
-                    return new RandomPatrolIdleBehavior();
+                    return new RandomPatrolBehavior();
 
                 default:
-                    return new StayIdleBehavior();
+                    return new StayBehavior();
             }
         }
 
-        private IAngryBehavior SetAngryBehavior()
+        private IBehavior SetAngryBehavior()
         {
-            switch (_enemyAngryBehavior)
+            switch (_reactBehaviorType)
             {
-                case GameSettings.EnemyAngryBehavior.Chase:
-                    return new ChaseAngryBehavior();
+                case GameSettings.EnemyReactBehavior.Chase:
+                    return new ChaseBehavior();
 
-                case GameSettings.EnemyAngryBehavior.Explode:
-                    return new ExplodeAngryBehavior();
+                case GameSettings.EnemyReactBehavior.Explode:
+                    return new ExplodeBehavior();
 
-                case GameSettings.EnemyAngryBehavior.RunAway:
-                    return new RunAwayAngryBehavior();
+                case GameSettings.EnemyReactBehavior.RunAway:
+                    return new RunAwayBehavior();
 
                 default:
-                    return new ChaseAngryBehavior();
+                    return new ChaseBehavior();
             }
         }
     }

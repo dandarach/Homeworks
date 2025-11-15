@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace Homework17.Behaviors
 {
-    public interface IAngryBehavior
+    public interface IBehavior
     {
-        void Attack();
+        void Process();
     }
 }

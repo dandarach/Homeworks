@@ -3,11 +3,11 @@ using Homework17.Behaviors;
 
 namespace Homework17.Behaviors
 {
-    public class StayIdleBehavior : IIdleBehavior
+    public class PatrolBehavior : IBehavior
     {
-       public void Idle()
+       public void Process()
         {
-            Debug.Log("Idle Stay");
+            Debug.Log("Patrol");
         }
     }
 }

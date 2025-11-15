@@ -8,29 +8,20 @@ namespace Homework17.Characters
     public class Enemy : MonoBehaviour
     {
         private DistanceDetector _distanceDetector;
-        private Transform _heroTransform;
 
-        private IIdleBehavior _idleBehavior;
-        private IAngryBehavior _angryBehavior;
+        private IBehavior _idleBehavior;
+        private IBehavior _reactBehavior;
+        private IBehavior _currentBehavior;
 
-        public void Initialize(IIdleBehavior idleBehavior, IAngryBehavior angryBehavior)
+        public void Initialize(IBehavior idleBehavior, IBehavior reactBehavior, Transform detectTarget)
         {
-            SetBehavior(idleBehavior, angryBehavior);
+            _idleBehavior = idleBehavior;
+            _reactBehavior = reactBehavior;
 
-            Hero hero = FindObjectOfType<Hero>();
+            _distanceDetector = gameObject.AddComponent<DistanceDetector>();
+            _distanceDetector.Initialize(transform, detectTarget.transform, GameSettings.MinDistanceToDetect);
 
-            if (hero == null)
-            {
-                Debug.LogError("Unable to find Hero");
-            }
-            else
-            {
-                _heroTransform = hero.transform;
-                _distanceDetector = gameObject.AddComponent<DistanceDetector>();
-                _distanceDetector.Initialize(transform, _heroTransform, GameSettings.MinDistanceToDetect);
-            }
-
-            Idle();
+            SetBehavior(idleBehavior);
         }
 
         private void Update()
@@ -38,27 +29,15 @@ namespace Homework17.Characters
             if (_distanceDetector.IsDetectStateChanged)
             {
                 if (_distanceDetector.IsDetected)
-                {
-                    //Debug.Log("+ Angry");
-                    Attack();
-                }
+                    SetBehavior(_reactBehavior);
                 else
-                {
-                    //Debug.Log("- Idle");
-                    Idle();
-                }
+                    SetBehavior(_idleBehavior);
             }
+
+            _currentBehavior.Process();
         }
 
-        public void SetBehavior(IIdleBehavior idleBehavior, IAngryBehavior angryBehavior)
-        {
-            _idleBehavior = idleBehavior;
-            _angryBehavior = angryBehavior;
-        }
-
-        public void Idle() => _idleBehavior.Idle();
-
-        public void Attack() => _angryBehavior.Attack();
+        public void SetBehavior(IBehavior behavior) => _currentBehavior = behavior;
     }
 }
  

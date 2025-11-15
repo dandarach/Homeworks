@@ -20,7 +20,7 @@ namespace Homework17.Game
             RandomPatrol
         }
 
-        public enum EnemyAngryBehavior
+        public enum EnemyReactBehavior
         {
             Chase,
             RunAway,

@@ -183,6 +183,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5633278799783012588, guid: 856d206367afc42488920c87596431dd,
         type: 3}
+      propertyPath: _hero
+      value: 
+      objectReference: {fileID: 1416778626}
+    - target: {fileID: 5633278799783012588, guid: 856d206367afc42488920c87596431dd,
+        type: 3}
       propertyPath: _enemyPrefab
       value: 
       objectReference: {fileID: 7387763965718016761, guid: 85990d062fb53434ebc3bee6d89dd406,
@@ -711,13 +716,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5633278799783012588, guid: 856d206367afc42488920c87596431dd,
         type: 3}
+      propertyPath: _hero
+      value: 
+      objectReference: {fileID: 1416778626}
+    - target: {fileID: 5633278799783012588, guid: 856d206367afc42488920c87596431dd,
+        type: 3}
       propertyPath: _enemyPrefab
       value: 
       objectReference: {fileID: 7387763965718016761, guid: 85990d062fb53434ebc3bee6d89dd406,
         type: 3}
     - target: {fileID: 5633278799783012588, guid: 856d206367afc42488920c87596431dd,
         type: 3}
+      propertyPath: _idleBehaviorType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633278799783012588, guid: 856d206367afc42488920c87596431dd,
+        type: 3}
       propertyPath: _enemyIdleBehavior
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633278799783012588, guid: 856d206367afc42488920c87596431dd,
+        type: 3}
+      propertyPath: _reactBehaviorType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5633278799783012588, guid: 856d206367afc42488920c87596431dd,
@@ -1489,13 +1509,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5633278799783012588, guid: 856d206367afc42488920c87596431dd,
         type: 3}
+      propertyPath: _hero
+      value: 
+      objectReference: {fileID: 1416778626}
+    - target: {fileID: 5633278799783012588, guid: 856d206367afc42488920c87596431dd,
+        type: 3}
       propertyPath: _enemyPrefab
       value: 
       objectReference: {fileID: 7387763965718016761, guid: 85990d062fb53434ebc3bee6d89dd406,
         type: 3}
     - target: {fileID: 5633278799783012588, guid: 856d206367afc42488920c87596431dd,
         type: 3}
+      propertyPath: _idleBehaviorType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633278799783012588, guid: 856d206367afc42488920c87596431dd,
+        type: 3}
       propertyPath: _enemyIdleBehavior
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633278799783012588, guid: 856d206367afc42488920c87596431dd,
+        type: 3}
+      propertyPath: _reactBehaviorType
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5633278799783012588, guid: 856d206367afc42488920c87596431dd,
