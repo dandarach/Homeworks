@@ -17,13 +17,13 @@ namespace Homework17.Characters
         {
             _speed = speed;
             _rotationSpeed = rotationSpeed;
-            _initialTransform = characterController.transform;
+            //_initialTransform = characterController.transform;
         }
 
         public void MoveTo(Vector3 direction)
         {
-            _characterController.Move(_speed * Time.deltaTime * direction.normalized);
-            Debug.DrawRay(_characterController.transform.position, direction, DebugRayColor);
+            //_characterController.Move(_speed * Time.deltaTime * direction.normalized);
+            //Debug.DrawRay(_characterController.transform.position, direction, DebugRayColor);
         }
 
         public void RotateTo(Vector3 direction)
@@ -31,7 +31,7 @@ namespace Homework17.Characters
             Quaternion lookRotation = Quaternion.LookRotation(direction.normalized);
             float step = _rotationSpeed * Time.deltaTime;
 
-            _characterController.transform.rotation = Quaternion.RotateTowards(_characterController.transform.rotation, lookRotation, step);
+            //_characterController.transform.rotation = Quaternion.RotateTowards(_characterController.transform.rotation, lookRotation, step);
         }
 
         public void MoveAndRotate(Vector3 direction)
@@ -42,9 +42,9 @@ namespace Homework17.Characters
 
         public void ResetTransform()
         {
-            _characterController.transform.position = _initialTransform.position;
-            _characterController.transform.rotation = _initialTransform.rotation;
-            _characterController.transform.localScale = _initialTransform.localScale;
+           // _characterController.transform.position = _initialTransform.position;
+           // _characterController.transform.rotation = _initialTransform.rotation;
+           // _characterController.transform.localScale = _initialTransform.localScale;
         }
     }
 }
