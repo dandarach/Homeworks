@@ -185,7 +185,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _hero
       value: 
-      objectReference: {fileID: 1416778626}
+      objectReference: {fileID: 1416778629}
     - target: {fileID: 5633278799783012588, guid: 856d206367afc42488920c87596431dd,
         type: 3}
       propertyPath: _enemyPrefab
@@ -718,7 +718,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _hero
       value: 
-      objectReference: {fileID: 1416778626}
+      objectReference: {fileID: 1416778629}
     - target: {fileID: 5633278799783012588, guid: 856d206367afc42488920c87596431dd,
         type: 3}
       propertyPath: _enemyPrefab
@@ -1130,6 +1130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1416778626}
   - component: {fileID: 1416778629}
+  - component: {fileID: 1416778630}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Untagged
@@ -1165,6 +1166,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83945827b85e4dc4a9a17e7ca5490f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mover: {fileID: 1416778630}
+--- !u!114 &1416778630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416778625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b14bd2d75abb1a64992b3c5012481231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  _rotationSpeed: 700
 --- !u!1001 &1659222651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1511,7 +1527,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _hero
       value: 
-      objectReference: {fileID: 1416778626}
+      objectReference: {fileID: 1416778629}
     - target: {fileID: 5633278799783012588, guid: 856d206367afc42488920c87596431dd,
         type: 3}
       propertyPath: _enemyPrefab

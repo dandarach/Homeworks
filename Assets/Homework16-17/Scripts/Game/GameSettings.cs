@@ -13,14 +13,14 @@ namespace Homework17.Game
         public const float CharacterSpeed = 5.0f;
         public const float CharacterRotationSpeed = 700.0f;
 
-        public enum EnemyIdleBehavior
+        public enum IdleBehavior
         {
             Stay,
             Patrol,
             RandomPatrol
         }
 
-        public enum EnemyReactBehavior
+        public enum ReactBehavior
         {
             Chase,
             RunAway,

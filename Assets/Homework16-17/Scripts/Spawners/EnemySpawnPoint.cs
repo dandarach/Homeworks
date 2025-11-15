@@ -9,42 +9,53 @@ namespace Homework17.Spawners
     public class EnemySpawnPoint : SpawnPoint
     {
         [SerializeField] private Enemy _enemyPrefab;
-        [SerializeField] private Transform _hero;
+        [SerializeField] private Hero _hero;
 
-        [SerializeField] private GameSettings.EnemyIdleBehavior _idleBehaviorType;
-        [SerializeField] private GameSettings.EnemyReactBehavior _reactBehaviorType;
+        [SerializeField] private GameSettings.IdleBehavior _idleBehaviorType;
+        [SerializeField] private GameSettings.ReactBehavior _reactBehaviorType;
 
         public override void Spawn()
         {
-            IBehavior idleBehavior = SetBehavior(_idleBehaviorType);
-            IBehavior reactBehavior = SetBehavior(_reactBehaviorType);
-
             Enemy newEnemy = Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
             newEnemy.transform.parent = null;
-            newEnemy.Initialize(idleBehavior, reactBehavior, _hero);
+
+            IBehavior idleBehavior = CreateBehavior(_idleBehaviorType, newEnemy);
+            IBehavior reactBehavior = CreateBehavior(_reactBehaviorType, newEnemy);
+
+            newEnemy.Initialize(idleBehavior, reactBehavior, _hero.transform);
         }
 
-        private IBehavior SetBehavior(Enum behaviorType)
+        private IBehavior CreateBehavior(Enum behaviorType, Enemy enemy)
         {
             switch (behaviorType)
             {
-                case GameSettings.EnemyIdleBehavior.Stay:
+                case GameSettings.IdleBehavior.Stay:
                     return new StayBehavior();
 
-                case GameSettings.EnemyIdleBehavior.Patrol:
+                case GameSettings.IdleBehavior.Patrol:
                     return new PatrolBehavior();
 
-                case GameSettings.EnemyIdleBehavior.RandomPatrol:
+                case GameSettings.IdleBehavior.RandomPatrol:
                     return new RandomPatrolBehavior();
 
-                case GameSettings.EnemyReactBehavior.Chase:
+                case GameSettings.ReactBehavior.Chase:
                     return new ChaseBehavior();
 
-                case GameSettings.EnemyReactBehavior.Explode:
+                case GameSettings.ReactBehavior.Explode:
                     return new ExplodeBehavior();
 
-                case GameSettings.EnemyReactBehavior.RunAway:
-                    return new RunAwayBehavior();
+                case GameSettings.ReactBehavior.RunAway:
+                    Mover enemyMover = enemy.GetComponent<Mover>();
+
+                    if (enemyMover == null)
+                    {
+                        Debug.LogError("Unable to get Mover component");
+                        return null;
+                    }
+                    else
+                    {
+                        return new RunAwayBehavior(enemyMover, _hero.transform);
+                    }
 
                 default:
                     return new StayBehavior();

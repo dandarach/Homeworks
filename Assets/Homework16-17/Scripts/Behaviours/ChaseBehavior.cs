@@ -5,9 +5,9 @@ namespace Homework17.Behaviors
 {
     public class ChaseBehavior : IBehavior
     {
-       public void Process()
+        public void Process()
         {
-            Debug.Log("Chase");
+            //Debug.Log("Chase");
         }
     }
 }

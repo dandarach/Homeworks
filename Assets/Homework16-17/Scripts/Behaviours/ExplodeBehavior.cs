@@ -5,9 +5,9 @@ namespace Homework17.Behaviors
 {
     public class ExplodeBehavior : IBehavior
     {
-       public void Process()
+        public void Process()
         {
-            Debug.Log("Explode");
+            //Debug.Log("Explode");
         }
     }
 }

@@ -2,37 +2,32 @@ using UnityEngine;
 
 namespace Homework17.Characters
 {
-    public class Mover
+    public class Mover : MonoBehaviour
     {
-        private float _speed;
-        private float _rotationSpeed;
+        [SerializeField] private float _speed;
+        [SerializeField] private float _rotationSpeed;
 
-        private Transform _currentTransform;
         private Transform _initialTransform;
 
         public Color DebugRayColor { get; set; }
 
-        public float Speed { get { return _speed; } }
-
-        public void Initialize(Transform currentTransform, float speed, float rotationSpeed)
+        public void Awake()
         {
-            _speed = speed;
-            _rotationSpeed = rotationSpeed;
-            _initialTransform = _currentTransform = currentTransform;
+            _initialTransform = transform;
             DebugRayColor = Color.red;
         }
 
         public void MoveTo(Vector3 direction)
         {
-            _currentTransform.Translate(_speed * Time.deltaTime * direction.normalized, Space.World);
-            Debug.DrawRay(_currentTransform.position, direction, DebugRayColor);
+            transform.Translate(_speed * Time.deltaTime * direction.normalized, Space.World);
+            Debug.DrawRay(transform.position, direction, DebugRayColor);
         }
 
         public void RotateTo(Vector3 direction)
         {
             Quaternion lookRotation = Quaternion.LookRotation(direction.normalized);
             float step = _rotationSpeed * Time.deltaTime;
-            _currentTransform.rotation = Quaternion.RotateTowards(_currentTransform.rotation, lookRotation, step);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, step);
         }
 
         public void MoveAndRotate(Vector3 direction)
@@ -43,9 +38,9 @@ namespace Homework17.Characters
 
         public void ResetTransform()
         {
-            _currentTransform.position = _initialTransform.position;
-            _currentTransform.rotation = _initialTransform.rotation;
-            _currentTransform.localScale = _initialTransform.localScale;
+            transform.position = _initialTransform.position;
+            transform.rotation = _initialTransform.rotation;
+            transform.localScale = _initialTransform.localScale;
         }
     }
 }

@@ -5,9 +5,9 @@ namespace Homework17.Behaviors
 {
     public class PatrolBehavior : IBehavior
     {
-       public void Process()
+        public void Process()
         {
-            Debug.Log("Patrol");
+            //Debug.Log("Patrol");
         }
     }
 }
