@@ -4,8 +4,6 @@ namespace Homework17.Spawners
 {
     public abstract class SpawnPoint : MonoBehaviour
     {
-        public abstract void Initialize();
-
         public abstract void Spawn();
     }
 }

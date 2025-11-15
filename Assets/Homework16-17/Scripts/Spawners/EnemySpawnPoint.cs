@@ -14,20 +14,14 @@ namespace Homework17.Spawners
         [SerializeField] private GameSettings.EnemyIdleBehavior _idleBehaviorType;
         [SerializeField] private GameSettings.EnemyReactBehavior _reactBehaviorType;
 
-        private IBehavior _idleBehavior;
-        private IBehavior _reactBehavior;
-
-        public override void Initialize()
-        {
-            _idleBehavior = SetBehavior(_idleBehaviorType);
-            _reactBehavior = SetBehavior(_reactBehaviorType);
-        }
-
         public override void Spawn()
         {
+            IBehavior idleBehavior = SetBehavior(_idleBehaviorType);
+            IBehavior reactBehavior = SetBehavior(_reactBehaviorType);
+
             Enemy newEnemy = Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
             newEnemy.transform.parent = null;
-            newEnemy.Initialize(_idleBehavior, _reactBehavior, _hero);
+            newEnemy.Initialize(idleBehavior, reactBehavior, _hero);
         }
 
         private IBehavior SetBehavior(Enum behaviorType)
