@@ -6,8 +6,8 @@ namespace Homework17.Behaviors
     public class StayBehavior : IBehavior
     {
        public void Process()
-        {
-            Debug.Log("Stay");
-        }
+       {
+            // nothing to do
+       }
     }
 }

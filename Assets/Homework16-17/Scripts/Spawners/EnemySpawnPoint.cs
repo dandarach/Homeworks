@@ -2,6 +2,7 @@ using UnityEngine;
 using Homework17.Behaviors;
 using Homework17.Characters;
 using Homework17.Game;
+using System;
 
 namespace Homework17.Spawners
 {
@@ -18,8 +19,8 @@ namespace Homework17.Spawners
 
         public override void Initialize()
         {
-            _idleBehavior = SetIdleBehavior();
-            _reactBehavior = SetAngryBehavior();
+            _idleBehavior = SetBehavior(_idleBehaviorType);
+            _reactBehavior = SetBehavior(_reactBehaviorType);
         }
 
         public override void Spawn()
@@ -29,9 +30,9 @@ namespace Homework17.Spawners
             newEnemy.Initialize(_idleBehavior, _reactBehavior, _hero);
         }
 
-        private IBehavior SetIdleBehavior()
+        private IBehavior SetBehavior(Enum behaviorType)
         {
-            switch (_idleBehaviorType)
+            switch (behaviorType)
             {
                 case GameSettings.EnemyIdleBehavior.Stay:
                     return new StayBehavior();
@@ -42,15 +43,6 @@ namespace Homework17.Spawners
                 case GameSettings.EnemyIdleBehavior.RandomPatrol:
                     return new RandomPatrolBehavior();
 
-                default:
-                    return new StayBehavior();
-            }
-        }
-
-        private IBehavior SetAngryBehavior()
-        {
-            switch (_reactBehaviorType)
-            {
                 case GameSettings.EnemyReactBehavior.Chase:
                     return new ChaseBehavior();
 
@@ -61,7 +53,7 @@ namespace Homework17.Spawners
                     return new RunAwayBehavior();
 
                 default:
-                    return new ChaseBehavior();
+                    return new StayBehavior();
             }
         }
     }
